@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <tabs>
+        <tab
+            id="@+id/userCom"
+            icon="@drawable/ic_settings_black_24dp"
+            title="My"
+            />
+        <tab
+            id="@+id/userService"
+            icon="@drawable/ic_tag_faces_black_24dp"
+            title="서비스">
+        </tab>
+        <tab
+            id="@+id/userHome"
+            icon="@drawable/ic_home_black_24dp"
+            title="홈">
+        </tab>
+        <tab
+            id="@+id/userAS"
+            icon="@drawable/ic_tag_faces_black_24dp"
+            title="A/S">
+        </tab>
+        <tab
+            id="@+id/userMenual"
+            icon="@drawable/ic_tag_faces_black_24dp"
+            title="메뉴얼">
+        </tab>
+    </tabs>
+</PreferenceScreen>

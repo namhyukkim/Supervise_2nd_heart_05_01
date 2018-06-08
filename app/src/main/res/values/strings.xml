@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Supervise_2nd_heart</string>
+    <string name="appbar_scrolling_view_behavior"></string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Supervise Of Compressor</string>
+    <string name="nav_header_subtitle">콤프레서 관리 어플</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">Search</string>
+    <string name="editText_main_searchKeyword">회사명을 입력하시오</string>
+</resources>

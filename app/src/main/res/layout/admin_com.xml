@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="horizontal"
+android:layout_margin="15dp"
+android:padding="10dp">
+
+<TextView
+    android:id="@+id/textV"
+    android:layout_width="80dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="5"
+    android:layout_margin="5dp"
+    android:padding="5dp"
+    android:text="전압: 0.00"/>
+
+
+<TextView
+    android:id="@+id/textA"
+    android:layout_width="80dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="5"
+    android:layout_margin="5dp"
+    android:padding="5dp"
+    android:text="전류: 2"/>
+
+
+<TextView
+    android:id="@+id/textC"
+    android:layout_width="80dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="5"
+    android:layout_margin="5dp"
+    android:padding="5dp"
+    android:text="온도: 22"/>
+
+
+</LinearLayout>
