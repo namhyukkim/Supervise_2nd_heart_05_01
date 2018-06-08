@@ -36,8 +36,6 @@ public class Admin_Mypage_AS extends Fragment implements OnMapReadyCallback {
     }
 
 
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,9 +46,8 @@ public class Admin_Mypage_AS extends Fragment implements OnMapReadyCallback {
         ListView listview1 = (ListView) view.findViewById(R.id.listView1);
         listview1.setAdapter(Adapter);
 
-        mapView = (MapView)view.findViewById(R.id.map1);
+        mapView = (MapView) view.findViewById(R.id.map1);
         mapView.getMapAsync(this);
-
 
 
         // return view;  이부분을 끝으로 옮기세요.
@@ -116,8 +113,7 @@ public class Admin_Mypage_AS extends Fragment implements OnMapReadyCallback {
 
 //액티비티가 처음 생성될 때 실행되는 함수
 
-        if(mapView != null)
-        {
+        if (mapView != null) {
             mapView.onCreate(savedInstanceState);
         }
     }

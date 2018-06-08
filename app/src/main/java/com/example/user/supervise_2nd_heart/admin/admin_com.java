@@ -20,4 +20,5 @@ public class admin_com extends Fragment {
         View v = inflater.inflate(R.layout.admin_com, container, false);
         return v;
     }
+
 }

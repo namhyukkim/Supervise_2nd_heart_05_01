@@ -25,24 +25,25 @@ import com.example.user.supervise_2nd_heart.admin.admin_register;
 
 public class AdminActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-        LinearLayout back2;
-        ImageView com1,myPage1,phone1,industry1;
+    LinearLayout back2;
+    ImageView com1, myPage1, phone1, industry1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         /////////////////////////////메인 엑티비트에 나와있는 아이콘 클릭 이벤트 처리담당
-        back2 = (LinearLayout)findViewById(R.id.back2);
-        com1 = (ImageView)findViewById(R.id.com1);
-        myPage1 = (ImageView)findViewById(R.id.myPage1);
-        phone1 = (ImageView)findViewById(R.id.phone1);
-        industry1 =(ImageView)findViewById(R.id.industry1);
+        back2 = (LinearLayout) findViewById(R.id.back2);
+        com1 = (ImageView) findViewById(R.id.com1);
+        myPage1 = (ImageView) findViewById(R.id.myPage1);
+        phone1 = (ImageView) findViewById(R.id.phone1);
+        industry1 = (ImageView) findViewById(R.id.industry1);
 
         com1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.content_main,new admin_com()).addToBackStack(null).commit();
+                manager.beginTransaction().replace(R.id.content_main, new admin_com()).addToBackStack(null).commit();
                 back2.setVisibility(View.INVISIBLE);
             }
         });
@@ -50,7 +51,7 @@ public class AdminActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.content_main,new Admin_Mypage_Main()).addToBackStack(null).commit();
+                manager.beginTransaction().replace(R.id.content_main, new Admin_Mypage_Main()).addToBackStack(null).commit();
                 back2.setVisibility(View.INVISIBLE);
             }
         });
@@ -58,7 +59,7 @@ public class AdminActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.content_main,new admin_register()).addToBackStack(null).commit();
+                manager.beginTransaction().replace(R.id.content_main, new admin_register()).addToBackStack(null).commit();
                 back2.setVisibility(View.INVISIBLE);
             }
         });
@@ -66,7 +67,7 @@ public class AdminActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.content_main,new admin_customer()).addToBackStack(null).commit();
+                manager.beginTransaction().replace(R.id.content_main, new admin_customer()).addToBackStack(null).commit();
                 back2.setVisibility(View.INVISIBLE);
             }
         });
@@ -96,7 +97,6 @@ public class AdminActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 
     }
@@ -142,17 +142,17 @@ public class AdminActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.com) {
-            manager.beginTransaction().replace(R.id.content_main,new admin_com()).addToBackStack(null).commit();
+            manager.beginTransaction().replace(R.id.content_main, new admin_com()).addToBackStack(null).commit();
 //            back2.setVisibility(View.INVISIBLE);
         } else if (id == R.id.man) {
-            manager.beginTransaction().replace(R.id.content_main,new Admin_Mypage_Main()).addToBackStack(null).commit();
+            manager.beginTransaction().replace(R.id.content_main, new Admin_Mypage_Main()).addToBackStack(null).commit();
 //            back2.setVisibility(View.INVISIBLE);
         } else if (id == R.id.phone) {
-            manager.beginTransaction().replace(R.id.content_main,new admin_register()).addToBackStack(null).commit();
+            manager.beginTransaction().replace(R.id.content_main, new admin_register()).addToBackStack(null).commit();
 //            back2.setVisibility(View.INVISIBLE);
 
         } else if (id == R.id.industry) {
-            manager.beginTransaction().replace(R.id.content_main,new admin_customer()).addToBackStack(null).commit();
+            manager.beginTransaction().replace(R.id.content_main, new admin_customer()).addToBackStack(null).commit();
 //            back2.setVisibility(View.INVISIBLE);
 
         } else if (id == R.id.nav_share) {

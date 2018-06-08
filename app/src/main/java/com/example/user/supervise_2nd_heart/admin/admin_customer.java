@@ -34,10 +34,10 @@ import java.util.HashMap;
 public class admin_customer extends Fragment {
     private static String TAG = "phptest_MainActivity";
 
-    private static final String TAG_JSON="webnautes";
+    private static final String TAG_JSON = "webnautes";
     private static final String TAG_ID = "userID";
     private static final String TAG_PASSWORD = "userPassword";
-    private static final String TAG_CUSTOMER ="userCustomer";
+    private static final String TAG_CUSTOMER = "userCustomer";
 
 
     ArrayList<HashMap<String, String>> mArrayList;
@@ -45,8 +45,6 @@ public class admin_customer extends Fragment {
     ListView mListViewList;
     EditText mEditTextSearchKeyword;
     String mJsonString;
-
-
 
 
     @Nullable
@@ -65,7 +63,7 @@ public class admin_customer extends Fragment {
                 mArrayList.clear();
 
                 GetData task = new GetData();
-                task.execute( mEditTextSearchKeyword.getText().toString());
+                task.execute(mEditTextSearchKeyword.getText().toString());
 //                task.execute("http://211.115.254.166:8282/loadinfo.php");
             }
         });
@@ -94,12 +92,12 @@ public class admin_customer extends Fragment {
             Log.d(TAG, "response  - " + result);
 
 
-
             mJsonString = result;
             showResult();
 
 
         }
+
         @Override
         protected String doInBackground(String... params) {
 
@@ -129,10 +127,9 @@ public class admin_customer extends Fragment {
                 Log.d(TAG, "response code - " + responseStatusCode);
 
                 InputStream inputStream;
-                if(responseStatusCode == HttpURLConnection.HTTP_OK) {
+                if (responseStatusCode == HttpURLConnection.HTTP_OK) {
                     inputStream = httpURLConnection.getInputStream();
-                }
-                else{
+                } else {
                     inputStream = httpURLConnection.getErrorStream();
                 }
 
@@ -143,7 +140,7 @@ public class admin_customer extends Fragment {
                 StringBuilder sb = new StringBuilder();
                 String line;
 
-                while((line = bufferedReader.readLine()) != null){
+                while ((line = bufferedReader.readLine()) != null) {
                     sb.append(line);
                 }
 
@@ -164,13 +161,14 @@ public class admin_customer extends Fragment {
 
         }
     }
-    private void showResult(){
+
+    private void showResult() {
 
         try {
             JSONObject jsonObject = new JSONObject(mJsonString);
             JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
 
-            for(int i=0;i<jsonArray.length();i++){
+            for (int i = 0; i < jsonArray.length(); i++) {
 
                 JSONObject item = jsonArray.getJSONObject(i);
 
@@ -179,7 +177,7 @@ public class admin_customer extends Fragment {
                 String customer = item.getString(TAG_CUSTOMER);
 
 
-                HashMap<String,String> hashMap = new HashMap<>();
+                HashMap<String, String> hashMap = new HashMap<>();
 
                 hashMap.put(TAG_ID, id);
                 hashMap.put(TAG_PASSWORD, password);
@@ -190,9 +188,9 @@ public class admin_customer extends Fragment {
             }
 
             ListAdapter ListAdapter = new SimpleAdapter(
-                    getActivity(), mArrayList,R.layout.item_list,
-                    new String[]{TAG_ID,TAG_PASSWORD,TAG_CUSTOMER},
-                    new int[]{R.id.textView_list_id, R.id.textView_list_password,R.id.textView_list_Customer}
+                    getActivity(), mArrayList, R.layout.item_list,
+                    new String[]{TAG_ID, TAG_PASSWORD, TAG_CUSTOMER},
+                    new int[]{R.id.textView_list_id, R.id.textView_list_password, R.id.textView_list_Customer}
             );
             mListViewList.setAdapter(ListAdapter);
 

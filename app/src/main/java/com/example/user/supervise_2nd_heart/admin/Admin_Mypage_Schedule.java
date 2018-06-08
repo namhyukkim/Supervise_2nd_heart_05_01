@@ -30,17 +30,15 @@ public class Admin_Mypage_Schedule extends Fragment implements OnMapReadyCallbac
     }
 
 
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.admin_mypage_schedule, null);
-        TableRow table1 = (TableRow)view.findViewById(R.id.table1);
+        TableRow table1 = (TableRow) view.findViewById(R.id.table1);
 
 
-        mapView = (MapView)view.findViewById(R.id.map);
+        mapView = (MapView) view.findViewById(R.id.map);
         mapView.getMapAsync(this);
 
 
@@ -48,10 +46,9 @@ public class Admin_Mypage_Schedule extends Fragment implements OnMapReadyCallbac
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(getActivity(),"바보야",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "바보야", Toast.LENGTH_SHORT).show();
             }
         });
-
 
 
         return view;
@@ -105,8 +102,7 @@ public class Admin_Mypage_Schedule extends Fragment implements OnMapReadyCallbac
 
 //액티비티가 처음 생성될 때 실행되는 함수
 
-        if(mapView != null)
-        {
+        if (mapView != null) {
             mapView.onCreate(savedInstanceState);
         }
     }

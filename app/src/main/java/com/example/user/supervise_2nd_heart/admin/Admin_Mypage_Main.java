@@ -15,28 +15,29 @@ import com.example.user.supervise_2nd_heart.R;
 
 public class Admin_Mypage_Main extends Fragment implements View.OnClickListener {
 
-    private  Button scheBtn,asBtn;
-    private  LinearLayout notice;
+    private Button scheBtn, asBtn;
+    private LinearLayout notice;
     private RelativeLayout fragment;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.admin_mypage_main,container,false);
+        View v = inflater.inflate(R.layout.admin_mypage_main, container, false);
 
-         scheBtn = (Button)v.findViewById(R.id.scheBtn);
-         asBtn = (Button)v.findViewById(R.id.asBtn);
-         notice = (LinearLayout)v.findViewById(R.id.notice);
-         fragment = (RelativeLayout)v.findViewById(R.id.fragment);
+        scheBtn = (Button) v.findViewById(R.id.scheBtn);
+        asBtn = (Button) v.findViewById(R.id.asBtn);
+        notice = (LinearLayout) v.findViewById(R.id.notice);
+        fragment = (RelativeLayout) v.findViewById(R.id.fragment);
 
-         scheBtn.setOnClickListener(this);
-         asBtn.setOnClickListener(this);
+        scheBtn.setOnClickListener(this);
+        asBtn.setOnClickListener(this);
         return v;
     }
+
     @Override
     public void onClick(View v) {
         FragmentManager manager = getFragmentManager();
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.scheBtn:
                 notice.setVisibility(View.INVISIBLE);
                 manager.beginTransaction().replace(R.id.fragment, new Admin_Mypage_Schedule())
