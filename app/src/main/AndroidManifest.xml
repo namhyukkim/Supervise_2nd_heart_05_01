@@ -24,9 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".admin.admin_register"
-            android:theme="@style/AlertDialog.AppCompat.Light" />
+        <activity android:name=".admin.AdminCustomer"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
@@ -35,11 +34,7 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".user.UserMainActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".admin.Admin_Mypage_Main" />
-        <activity android:name=".admin.admin_customer"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".admin.AdminMoreInfo" />
-
+        <activity android:name=".admin.AdminMoreInfo"/>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDUT_3mHFzBWPaKxpacXz-UgbUTv-HPFic"/>

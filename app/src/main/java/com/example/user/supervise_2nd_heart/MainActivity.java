@@ -14,7 +14,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.example.user.supervise_2nd_heart.admin.AdminActivity;
-import com.example.user.supervise_2nd_heart.admin.admin_Sigin;
+import com.example.user.supervise_2nd_heart.admin.AdminSigin;
 import com.example.user.supervise_2nd_heart.network.SignIn;
 import com.example.user.supervise_2nd_heart.user.UserMainActivity;
 import com.tsengvn.typekit.TypekitContextWrapper;
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         //폰트적용
         //Typeface typeface = Typeface.createFromAsset(getAssets(),"fonts/yetnal.ttf");
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 };
-                admin_Sigin admin_sigIn = new admin_Sigin(userID, userPassword, resPonseLister);
+                AdminSigin admin_sigIn = new AdminSigin(userID, userPassword, resPonseLister);
                 RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
                 queue.add(admin_sigIn);
 //                Intent intent = new Intent(getApplicationContext(),AdminActivity.class);

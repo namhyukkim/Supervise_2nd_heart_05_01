@@ -9,11 +9,11 @@ import android.view.ViewGroup;
 
 import com.example.user.supervise_2nd_heart.R;
 
-public class user_com extends Fragment {
+public class UserService extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.user_com,container,false);
+        View v = inflater.inflate(R.layout.user_service,container,false);
 
         return v;
     }

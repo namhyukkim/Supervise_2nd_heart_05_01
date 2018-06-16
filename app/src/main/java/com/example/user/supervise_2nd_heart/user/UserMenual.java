@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import com.example.user.supervise_2nd_heart.R;
 
-public class user_menual extends Fragment {
+public class UserMenual extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {

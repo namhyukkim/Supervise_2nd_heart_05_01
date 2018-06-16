@@ -39,7 +39,7 @@
     </android.support.design.widget.AppBarLayout>
 
 
-    <include layout="@layout/content_main2" />
+    <include layout="@layout/admin_content_main" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

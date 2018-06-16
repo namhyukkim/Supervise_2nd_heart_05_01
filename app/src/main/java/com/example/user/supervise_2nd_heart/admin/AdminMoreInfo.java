@@ -9,7 +9,6 @@ import android.util.Log;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 
 
 import com.example.user.supervise_2nd_heart.R;
@@ -55,7 +54,7 @@ public class AdminMoreInfo extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.admin_custmer_row_listview);
+        setContentView(R.layout.admin_customer_row_listview);
 
         mlistView = (ListView) findViewById(R.id.listView_main_list);
         mArrayList = new ArrayList<>();

@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class admin_com extends Fragment {
+public class AdminCom extends Fragment {
     View v;
 //    private  ListView listView;
 //    private UserListAdapter adapter;

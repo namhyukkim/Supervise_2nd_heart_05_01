@@ -12,7 +12,7 @@ import android.widget.LinearLayout;
 
 import com.example.user.supervise_2nd_heart.R;
 
-public class user_home extends Fragment implements View.OnClickListener {
+public class UserHome extends Fragment implements View.OnClickListener {
 
     private ImageView imCom2, imMyPage2, imAs2, imMenual2;
     private LinearLayout back3;
@@ -39,20 +39,20 @@ public class user_home extends Fragment implements View.OnClickListener {
         FragmentManager manager = getFragmentManager();
         switch (v.getId()){
             case R.id.com2:
-                manager.beginTransaction().replace(R.id.contentContainer,new user_com()).addToBackStack(null).commit();
+                manager.beginTransaction().replace(R.id.contentContainer,new UserCom()).addToBackStack(null).commit();
                 back3.setVisibility(View.INVISIBLE);
                 break;
             case R.id.myPage2:
-                manager.beginTransaction().replace(R.id.contentContainer,new user_service()).addToBackStack(null).commit();
+                manager.beginTransaction().replace(R.id.contentContainer,new UserService()).addToBackStack(null).commit();
                 back3.setVisibility(View.INVISIBLE);
                 break;
 
             case R.id.as2:
-                manager.beginTransaction().replace(R.id.contentContainer,new user_as()).addToBackStack(null).commit();
+                manager.beginTransaction().replace(R.id.contentContainer,new UserAs()).addToBackStack(null).commit();
                 back3.setVisibility(View.INVISIBLE);
                 break;
             case R.id.menual2:
-                manager.beginTransaction().replace(R.id.contentContainer,new user_menual()).addToBackStack(null).commit();
+                manager.beginTransaction().replace(R.id.contentContainer,new UserMenual()).addToBackStack(null).commit();
                 back3.setVisibility(View.INVISIBLE);
                 break;
 

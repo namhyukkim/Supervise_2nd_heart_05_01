@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 
 import com.example.user.supervise_2nd_heart.R;
 
-public class Admin_Mypage_Main extends Fragment implements View.OnClickListener {
+public class AdminMypageMain extends Fragment implements View.OnClickListener {
 
     private Button scheBtn, asBtn;
     private LinearLayout notice;
@@ -40,13 +40,13 @@ public class Admin_Mypage_Main extends Fragment implements View.OnClickListener 
         switch (v.getId()) {
             case R.id.scheBtn:
                 notice.setVisibility(View.INVISIBLE);
-                manager.beginTransaction().replace(R.id.fragment, new Admin_Mypage_Schedule())
+                manager.beginTransaction().replace(R.id.fragment, new AdminMypageSchedule())
                         .addToBackStack(null).commit();
 
                 break;
             case R.id.asBtn:
                 notice.setVisibility(View.INVISIBLE);
-                manager.beginTransaction().replace(R.id.fragment, new Admin_Mypage_AS())
+                manager.beginTransaction().replace(R.id.fragment, new AdminMypageAS())
                         .addToBackStack(null).commit();
                 break;
         }

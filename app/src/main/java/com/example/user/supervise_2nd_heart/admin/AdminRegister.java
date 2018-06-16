@@ -21,7 +21,7 @@ import com.example.user.supervise_2nd_heart.network.SignIn2;
 
 import org.json.JSONObject;
 
-public class admin_register extends Fragment {
+public class AdminRegister extends Fragment {
 
     private String userID;
     private String userPassword;

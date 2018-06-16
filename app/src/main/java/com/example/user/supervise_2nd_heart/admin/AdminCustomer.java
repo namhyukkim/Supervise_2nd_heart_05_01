@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-public class admin_customer extends Fragment {
+public class AdminCustomer extends Fragment {
     private static String TAG = "phptest_MainActivity";
 
     private static final String TAG_JSON = "webnautes";
@@ -99,7 +99,7 @@ public class admin_customer extends Fragment {
                 {
                     if(i==s)
                     {
-                       // Log.d(TAG, "s값  - " +mArrayList.get(i));
+                        // Log.d(TAG, "s값  - " +mArrayList.get(i));
 
                         HashMap map = new HashMap();
                         map=mArrayList.get(i);

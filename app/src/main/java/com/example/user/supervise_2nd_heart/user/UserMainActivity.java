@@ -17,7 +17,7 @@ import com.tsengvn.typekit.TypekitContextWrapper;
 
 public class UserMainActivity extends AppCompatActivity {
     private LinearLayout back3;
-    private user_com usercom;
+    private UserCom usercom;
     ImageView imCom2, imMyPage2, imAs2, imMenual2;
 
     @Override
@@ -28,7 +28,7 @@ public class UserMainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_main);
-        usercom = new user_com();
+        usercom = new UserCom();
 
         imCom2 = (ImageView)findViewById(R.id.com2);
         imMyPage2 = (ImageView)findViewById(R.id.myPage2);
@@ -41,7 +41,7 @@ public class UserMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.contentContainer,new user_com()).addToBackStack(null).commit();
+                manager.beginTransaction().replace(R.id.contentContainer,new UserCom()).addToBackStack(null).commit();
                 back3.setVisibility(View.INVISIBLE);
             }
         });
@@ -49,7 +49,7 @@ public class UserMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.contentContainer,new user_service()).addToBackStack(null).commit();
+                manager.beginTransaction().replace(R.id.contentContainer,new UserService()).addToBackStack(null).commit();
                 back3.setVisibility(View.INVISIBLE);
             }
         });
@@ -57,7 +57,7 @@ public class UserMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.contentContainer,new user_as()).addToBackStack(null).commit();
+                manager.beginTransaction().replace(R.id.contentContainer,new UserAs()).addToBackStack(null).commit();
                 back3.setVisibility(View.INVISIBLE);
             }
         });
@@ -65,7 +65,7 @@ public class UserMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.contentContainer,new user_menual()).addToBackStack(null).commit();
+                manager.beginTransaction().replace(R.id.contentContainer,new UserMenual()).addToBackStack(null).commit();
                 back3.setVisibility(View.INVISIBLE);
             }
         });
@@ -78,23 +78,23 @@ public class UserMainActivity extends AppCompatActivity {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 FragmentManager manager = getFragmentManager();
                 if(tabId == R.id.userCom){
-                    manager.beginTransaction().replace(R.id.contentContainer,new user_com()).addToBackStack(null).commit();
+                    manager.beginTransaction().replace(R.id.contentContainer,new UserCom()).addToBackStack(null).commit();
                     back3.setVisibility(View.INVISIBLE);
                 }
                 else if(tabId == R.id.userService){
-                    manager.beginTransaction().replace(R.id.contentContainer,new user_service()).addToBackStack(null).commit();
+                    manager.beginTransaction().replace(R.id.contentContainer,new UserService()).addToBackStack(null).commit();
                     back3.setVisibility(View.INVISIBLE);
                 }
                 else if(tabId == R.id.userHome){
-                    manager.beginTransaction().replace(R.id.contentContainer,new user_home()).addToBackStack(null).commit();
+                    manager.beginTransaction().replace(R.id.contentContainer,new UserHome()).addToBackStack(null).commit();
                     back3.setVisibility(View.INVISIBLE);
                 }
                 else if(tabId == R.id.userAS){
-                    manager.beginTransaction().replace(R.id.contentContainer,new user_as()).addToBackStack(null).commit();
+                    manager.beginTransaction().replace(R.id.contentContainer,new UserAs()).addToBackStack(null).commit();
                     back3.setVisibility(View.INVISIBLE);
                 }
                 else if(tabId == R.id.userMenual){
-                    manager.beginTransaction().replace(R.id.contentContainer,new user_menual()).addToBackStack(null).commit();
+                    manager.beginTransaction().replace(R.id.contentContainer,new UserMenual()).addToBackStack(null).commit();
                     back3.setVisibility(View.INVISIBLE);
                 }
             }
