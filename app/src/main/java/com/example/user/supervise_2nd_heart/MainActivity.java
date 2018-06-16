@@ -1,5 +1,6 @@
 package com.example.user.supervise_2nd_heart;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -16,6 +17,7 @@ import com.example.user.supervise_2nd_heart.admin.AdminActivity;
 import com.example.user.supervise_2nd_heart.admin.admin_Sigin;
 import com.example.user.supervise_2nd_heart.network.SignIn;
 import com.example.user.supervise_2nd_heart.user.UserMainActivity;
+import com.tsengvn.typekit.TypekitContextWrapper;
 
 import org.json.JSONObject;
 
@@ -34,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
 
     private  AlertDialog dialog;
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

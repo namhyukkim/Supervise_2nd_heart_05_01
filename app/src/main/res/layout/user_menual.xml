@@ -1,10 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F2F2F2"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:background="@drawable/layout_border">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo3"
+            android:baselineAlignBottom="false"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/layout_border"
+        >
+
+        <EditText
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textColorHint="#4E5FA2"
+            android:hint="입력하세요"
+            android:textSize="20dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search2"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="보4루"
-        android:textSize="100dp"/>
-</android.support.constraint.ConstraintLayout>
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/layout_border"
+            android:gravity="left|center"
+            android:textSize="20dp"
+            android:text="   소음 발생"
+            android:drawableRight="@drawable/button"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/layout_border"
+            android:gravity="left|center"
+            android:textSize="20dp"
+            android:text="   안전게이지 작동"
+            android:drawableRight="@drawable/button"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/layout_border"
+            android:gravity="left|center"
+            android:textSize="20dp"
+            android:text="   공기 유출"
+            android:drawableRight="@drawable/button"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/layout_border"
+            android:gravity="left|center"
+            android:textSize="20dp"
+            android:text="   전기 이상"
+            android:drawableRight="@drawable/button"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/layout_border"
+            android:gravity="left|center"
+            android:textSize="20dp"
+            android:text="   오일 누유 / 넘침"
+            android:drawableRight="@drawable/button"
+            />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

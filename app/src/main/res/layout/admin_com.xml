@@ -1,40 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:orientation="horizontal"
-android:layout_margin="15dp"
-android:padding="10dp">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".admin.admin_com"
+    android:background="#F2F2F2">
 
-<TextView
-    android:id="@+id/textV"
-    android:layout_width="80dp"
-    android:layout_height="wrap_content"
-    android:layout_weight="5"
-    android:layout_margin="5dp"
-    android:padding="5dp"
-    android:text="전압: 0.00"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/layout_border">
 
+        <EditText
+            android:id="@+id/editText_main_searchKeyword"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textColorHint="#4E5FA2"
+            android:hint="@string/editText_main_searchKeyword"
+            android:textSize="20dp"/>
 
-<TextView
-    android:id="@+id/textA"
-    android:layout_width="80dp"
-    android:layout_height="wrap_content"
-    android:layout_weight="5"
-    android:layout_margin="5dp"
-    android:padding="5dp"
-    android:text="전류: 2"/>
+        <Button
+            android:id="@+id/button_main_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search2"/>
+    </LinearLayout>
 
-
-<TextView
-    android:id="@+id/textC"
-    android:layout_width="80dp"
-    android:layout_height="wrap_content"
-    android:layout_weight="5"
-    android:layout_margin="5dp"
-    android:padding="5dp"
-    android:text="온도: 22"/>
-
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_margin="1dp"
+        android:padding="1dp"
+        android:id="@+id/listView_main_list"
+        android:background="#FFFFFF"
+        />
 
 </LinearLayout>
