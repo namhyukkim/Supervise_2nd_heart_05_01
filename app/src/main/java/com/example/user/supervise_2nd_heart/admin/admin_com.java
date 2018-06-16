@@ -18,6 +18,9 @@ public class admin_com extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.admin_com, container, false);
+
+
+
         return v;
     }
 
