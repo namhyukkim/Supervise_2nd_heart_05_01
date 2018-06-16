@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     //-->기존 Activtiy보다 AppCompatAc가 상위임 바꾼 이유는 http://hashcode.co.kr/questions/1487/ 참고
 
 
-    private  AlertDialog dialog;
+    private AlertDialog dialog;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -52,47 +52,45 @@ public class MainActivity extends AppCompatActivity {
         //AdminLoBtn.setTypeface(typeface);
         //UserLoBtn.setTypeface(typeface);
 
-       final EditText IDEdit = (EditText) findViewById(R.id.ID);
-       final EditText PWEdit = (EditText) findViewById(R.id.PW);
+        final EditText IDEdit = (EditText) findViewById(R.id.ID);
+        final EditText PWEdit = (EditText) findViewById(R.id.PW);
 
 
-       final Button AdminLoBtn = (Button) findViewById(R.id.AdminLoginBtn);
-       final Button UserLoBtn = (Button) findViewById(R.id.UserLoginBtn);
+        final Button AdminLoBtn = (Button) findViewById(R.id.AdminLoginBtn);
+        final Button UserLoBtn = (Button) findViewById(R.id.UserLoginBtn);
 
         UserLoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //------------------------------------------남혁이 수정부분-------------------------------------------//
-                String userID =IDEdit.getText().toString();
+                String userID = IDEdit.getText().toString();
                 String userPassword = PWEdit.getText().toString();
 
                 Response.Listener<String> resPonseLister = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            JSONObject Jsonresponse =new JSONObject(response);
+                            JSONObject Jsonresponse = new JSONObject(response);
                             boolean success = Jsonresponse.getBoolean("success");
-                            if (success){
+                            if (success) {
                                 Toast.makeText(getApplicationContext(), "환영합니다.", Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(getApplicationContext(),UserMainActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), UserMainActivity.class);
                                 startActivity(intent);
                                 finish();
-                            }
-                            else {
+                            } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                                 dialog = builder.setMessage("로그인에 실패했습니다.")
-                                        .setNegativeButton("다시시도",null)
+                                        .setNegativeButton("다시시도", null)
                                         .create();
                                 dialog.show();
                             }
-                        }
-                        catch (Exception e){
+                        } catch (Exception e) {
 
                         }
                     }
                 };
-                SignIn signIn =new SignIn(userID, userPassword,resPonseLister);
-                RequestQueue queue= Volley.newRequestQueue(MainActivity.this);
+                SignIn signIn = new SignIn(userID, userPassword, resPonseLister);
+                RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
                 queue.add(signIn);
                 //----------------------------------------------------------------------------------------------------//
 
@@ -102,36 +100,34 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //------------------------------------------남혁이 수정부분-------------------------------------------//
-                String userID =IDEdit.getText().toString();
+                String userID = IDEdit.getText().toString();
                 String userPassword = PWEdit.getText().toString();
 
                 Response.Listener<String> resPonseLister = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            JSONObject Jsonresponse =new JSONObject(response);
+                            JSONObject Jsonresponse = new JSONObject(response);
                             boolean success = Jsonresponse.getBoolean("success");
-                            if (success){
+                            if (success) {
                                 Toast.makeText(getApplicationContext(), "환영합니다.", Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(getApplicationContext(),AdminActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), AdminActivity.class);
                                 startActivity(intent);
                                 finish();
-                            }
-                            else {
+                            } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                                 dialog = builder.setMessage("로그인에 실패했습니다.")
-                                        .setNegativeButton("다시시도",null)
+                                        .setNegativeButton("다시시도", null)
                                         .create();
                                 dialog.show();
                             }
-                        }
-                        catch (Exception e){
+                        } catch (Exception e) {
 
                         }
                     }
                 };
-                admin_Sigin admin_sigIn =new admin_Sigin(userID, userPassword,resPonseLister);
-                RequestQueue queue= Volley.newRequestQueue(MainActivity.this);
+                admin_Sigin admin_sigIn = new admin_Sigin(userID, userPassword, resPonseLister);
+                RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
                 queue.add(admin_sigIn);
 //                Intent intent = new Intent(getApplicationContext(),AdminActivity.class);
 //                startActivity(intent);
@@ -145,15 +141,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        if(dialog != null)
-        {
+        if (dialog != null) {
             dialog.dismiss();
-            dialog =null;
+            dialog = null;
         }
-    }
-
-    public void test(){
-        return;
     }
 }
 

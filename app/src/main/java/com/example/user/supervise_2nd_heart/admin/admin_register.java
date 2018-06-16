@@ -32,6 +32,9 @@ public class admin_register extends Fragment {
     private String useremail;
     private String userFax;
     private String userAddress;
+    private String userMk;
+    private String userAir;
+    private String userhour;
     private AlertDialog dialog;
     private boolean validate = false;
 
@@ -49,6 +52,9 @@ public class admin_register extends Fragment {
         final EditText userEmail = (EditText) v.findViewById(R.id.editEmail);
         final EditText userfax = (EditText) v.findViewById(R.id.editFax);
         final EditText useradress = (EditText) v.findViewById(R.id.editAddress);
+        final EditText usermk = (EditText) v.findViewById(R.id.editmK);
+        final EditText userair = (EditText) v.findViewById(R.id.editAir);
+        final EditText userHour = (EditText) v.findViewById(R.id.edithour);
 
         final Button validateButton = (Button) v.findViewById(R.id.validatebutton);
         validateButton.setOnClickListener(new View.OnClickListener() {
@@ -111,6 +117,9 @@ public class admin_register extends Fragment {
                 useremail = userEmail.getText().toString();
                 userFax = userfax.getText().toString();
                 userAddress = useradress.getText().toString();
+                userMk = usermk.getText().toString();
+                userAir = userair.getText().toString();
+                userhour = userHour.getText().toString();
 
                 if (!validate) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -157,7 +166,7 @@ public class admin_register extends Fragment {
                     }
                 };
 
-                RegisterRequest registerRequest = new RegisterRequest(userID, userPassword, userCustomer, userRepresentative, usercrn, userphone, useremail, userFax, userAddress, responseListener);
+                RegisterRequest registerRequest = new RegisterRequest(userID, userPassword, userCustomer, userRepresentative, usercrn, userphone, useremail, userFax, userAddress, userMk, userAir, userhour, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(getActivity());
                 queue.add(registerRequest);
 

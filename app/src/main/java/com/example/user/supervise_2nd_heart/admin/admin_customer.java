@@ -59,9 +59,9 @@ public class admin_customer extends Fragment {
 
         mListViewList = (ListView) v.findViewById(R.id.listView_main_list);
         mArrayList = new ArrayList<HashMap<String, String>>();
-        mEditTextSearchKeyword = (EditText) v.findViewById(R.id.editText_main_searchKeyword);
+        mEditTextSearchKeyword = (EditText) v.findViewById(R.id.editSearch);
 
-        button_search = (Button) v.findViewById(R.id.button_main_search);
+        button_search = (Button) v.findViewById(R.id.buttonSearch);
 
         GetData2 task2 = new GetData2();
         task2.execute("http://211.115.254.166:8282/loadinfo.php");

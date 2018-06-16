@@ -18,6 +18,7 @@ public class RegisterRequest extends StringRequest{
 
     public RegisterRequest(String userID, String userPassword, String userCustomer, String userRepresentative,
                            String userCrn, String userPhone, String userEmail, String userFax, String useraddress,
+                           String userMk, String userAir, String userhour,
                            Response.Listener<String> listener) {
         super(Method.POST, URL,listener,null);
         paramters=new HashMap<>();
@@ -30,6 +31,11 @@ public class RegisterRequest extends StringRequest{
         paramters.put("userEmail",userEmail);
         paramters.put("userFax", userFax);
         paramters.put("useraddress",useraddress);
+        paramters.put("userMk",userMk);
+        paramters.put("userAir",userAir);
+        paramters.put("userhour",userhour);
+
+
 
     }
 
