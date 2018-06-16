@@ -5,39 +5,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".admin.admin_customer">
+    tools:context=".admin.admin_com"
+    android:background="#F2F2F2">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginBottom="10dp"
+        android:background="@drawable/layout_border">
 
-        <EditText
-            android:id="@+id/editText_main_searchKeyword"
-            android:layout_width="0dp"
-            android:layout_weight="0.7"
-            android:layout_height="match_parent"
-            android:hint="@string/editText_main_searchKeyword"
-            android:gravity="center"
-            android:inputType="" />
+    <EditText
+    android:id="@+id/editSearch"
+    android:layout_width="290dp"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:textColorHint="#4E5FA2"
+    android:hint="회원명을 입력하세요"
+    android:textSize="20dp"/>
 
-        <Button
-            android:id="@+id/button_main_search"
-            android:layout_width="0dp"
-            android:layout_weight="0.3"
-            android:layout_height="match_parent"
-            android:text="@string/search" />
-    </LinearLayout>
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="6"
-        android:layout_margin="5dp"
-        android:padding="5dp"
-        android:id="@+id/listView_main_list"/>
-
-
-
-
+    <Button
+    android:id="@+id/buttonSearch"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/search2"/>
 </LinearLayout>
+
+<ListView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:layout_margin="1dp"
+    android:padding="1dp"
+    android:background="#FFFFFF"
+    android:id="@+id/searchListview" />
+
+    </LinearLayout>

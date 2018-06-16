@@ -2,6 +2,7 @@ package com.example.user.supervise_2nd_heart.admin;
 
 import android.app.ActionBar;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,16 +19,17 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.user.supervise_2nd_heart.R;
-import com.example.user.supervise_2nd_heart.admin.Admin_Mypage_Main;
-import com.example.user.supervise_2nd_heart.admin.admin_com;
-import com.example.user.supervise_2nd_heart.admin.admin_customer;
-import com.example.user.supervise_2nd_heart.admin.admin_register;
+import com.tsengvn.typekit.TypekitContextWrapper;
 
 public class AdminActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     LinearLayout back2;
     ImageView com1, myPage1, phone1, industry1;
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,6 +1,7 @@
 package com.example.user.supervise_2nd_heart.user;
 
 import android.app.FragmentManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
@@ -12,12 +13,17 @@ import android.widget.LinearLayout;
 import com.example.user.supervise_2nd_heart.R;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabReselectListener;
+import com.tsengvn.typekit.TypekitContextWrapper;
 
 public class UserMainActivity extends AppCompatActivity {
     private LinearLayout back3;
     private user_com usercom;
     ImageView imCom2, imMyPage2, imAs2, imMenual2;
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
+    }
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

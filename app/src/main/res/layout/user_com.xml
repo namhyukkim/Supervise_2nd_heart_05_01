@@ -1,10 +1,240 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<TextView
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:textSize="100dp"
-    android:text="보이루"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+
+        tools:ignore="MissingConstraints">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#F2F2F2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:background="@drawable/layout_border">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/logo3"
+                    android:baselineAlignBottom="false"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:src="@drawable/com_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/com_icon"
+                    android:text="  제품정보"
+                    android:layout_marginRight="120dp"
+                    android:textSize="20dp"
+                    android:textColor="#5D5D5D"/>
+
+                <LinearLayout
+                    android:layout_width="380dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/layout_border"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    >
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="110dp"
+                        android:text="GRH3-75A"
+                        android:textSize="20dp"
+                        android:textColor="#000000"/>
+
+                    <ToggleButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:checked="false"
+                        android:textSize="20dp"
+                        android:background="@drawable/button"
+                    />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="380dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/layout_border"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="누적시간"
+                        android:layout_marginRight="170dp"
+                        android:textSize="20dp"
+                        android:textColor="#000000"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="8766H"
+                        android:textSize="20dp"
+                        android:textColor="#4E5FA2"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="380dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/layout_border"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="소모품교체시기"
+                        android:layout_marginRight="100dp"
+                        android:textSize="20dp"
+                        android:textColor="#000000"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="11766H"
+                        android:textSize="20dp"
+                        android:textColor="#4E5FA2"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:src="@drawable/com_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/com_icon"
+                    android:text="  제품정보"
+                    android:layout_marginRight="120dp"
+                    android:textSize="20dp"
+                    android:textColor="#5D5D5D"/>
+
+                <LinearLayout
+                    android:layout_width="380dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/layout_border"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    >
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="110dp"
+                        android:text="GRH3-75A"
+                        android:textSize="20dp"
+                        android:textColor="#000000"/>
+
+                    <ToggleButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:checked="false"
+                        android:textSize="20dp"
+                        android:background="@drawable/button"
+                        />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="380dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/layout_border"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="누적시간"
+                        android:layout_marginRight="170dp"
+                        android:textSize="20dp"
+                        android:textColor="#000000"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="8766H"
+                        android:textSize="20dp"
+                        android:textColor="#4E5FA2"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="380dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/layout_border"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="소모품교체시기"
+                        android:layout_marginRight="100dp"
+                        android:textSize="20dp"
+                        android:textColor="#000000"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="11766H"
+                        android:textSize="20dp"
+                        android:textColor="#4E5FA2"/>
+                </LinearLayout>
+
+            </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+
 </android.support.constraint.ConstraintLayout>

@@ -3,51 +3,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#F2F2F2"
     >
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center">
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:src="@drawable/logo"/>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/logo"
+            />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
 
         <EditText
             android:id="@+id/ID"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:textSize="30dp"
-            android:hint="아이디"
-            android:textColorHint="#D5D5D5"
-            android:theme="@style/EditTextStyle"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:textSize="18dp"
+            android:hint="  아이디"
             android:background="@drawable/back"
             android:layout_gravity="center"
-            android:drawableLeft="@drawable/user2"
-            android:drawablePadding="10dp"
             android:singleLine="true"
             android:lines="1"
+            android:textColorHighlight="#FFFFFF"
             />
         <EditText
             android:id="@+id/PW"
-            android:layout_marginTop="10dp"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:textSize="30dp"
-            android:hint="비밀번호"
+
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:textSize="18dp"
+            android:hint="  비밀번호"
             android:password="true"
-            android:textColorHint="#D5D5D5"
-            android:theme="@style/EditTextStyle"
             android:background="@drawable/back"
             android:layout_gravity="center"
-            android:drawableLeft="@drawable/locked2"
-            android:drawablePadding="10dp"
             android:singleLine="true"
             android:lines="1"/>
 
@@ -57,25 +55,41 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="10dp">
         <Button
             android:id="@+id/AdminLoginBtn"
-            android:layout_width="145dp"
+            android:layout_width="125dp"
             android:layout_height="wrap_content"
             android:text="관리자로 로그인"
-            android:textSize="20dp"
+            android:textSize="17dp"
             android:textColor="#FFFFFF"
-            android:background="#4374D9"
-            android:layout_marginRight="10dp"/>
+            android:background="#030066"
+            android:layout_marginRight="5dp"/>
         <Button
             android:id="@+id/UserLoginBtn"
-            android:layout_width="145dp"
+            android:layout_width="125dp"
             android:layout_height="wrap_content"
             android:text="사용자로 로그인"
-            android:textSize="20dp"
+            android:textSize="17dp"
             android:textColor="#FFFFFF"
-            android:background="#6799FF"/>
+            android:background="#5D5D5D"/>
 
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:padding="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="COPYRIGHT(C) 2018. 99 ALL RIGHTS RESERVED"
+            android:drawableEnd="@drawable/teamlogo"
+            android:textColor="#5D5D5D"/>
     </LinearLayout>
 
 
