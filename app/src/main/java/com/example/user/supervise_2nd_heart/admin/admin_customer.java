@@ -57,7 +57,7 @@ public class admin_customer extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.admin_customer, container, false);
 
-        mListViewList = (ListView) v.findViewById(R.id.listView_main_list);
+        mListViewList = (ListView) v.findViewById(R.id.searchListview);
         mArrayList = new ArrayList<HashMap<String, String>>();
         mEditTextSearchKeyword = (EditText) v.findViewById(R.id.editSearch);
 

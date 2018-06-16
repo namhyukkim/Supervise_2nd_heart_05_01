@@ -35,8 +35,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center">
 
-                <EditText
-                    android:id="@+id/idtext"
+                <TextView
+                    android:id="@+id/text1"
                     android:layout_width="310dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -53,8 +53,8 @@
             </LinearLayout>
 
 
-            <EditText
-                android:id="@+id/userPassword"
+            <TextView
+                android:id="@+id/text2"
                 android:layout_width="310dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
@@ -69,8 +69,8 @@
                 android:textColor="#000000"
                 />
 
-            <EditText
-                android:id="@+id/userCompany"
+            <TextView
+                android:id="@+id/text3"
                 android:layout_width="310dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
@@ -84,8 +84,8 @@
                 android:textColor="#000000"
                 />
 
-            <EditText
-                android:id="@+id/editRepresentation"
+            <TextView
+                android:id="@+id/text4"
                 android:layout_width="310dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
@@ -99,8 +99,8 @@
                 android:textColor="#000000"
                 />
 
-            <EditText
-                android:id="@+id/editCompanyNum"
+            <TextView
+                android:id="@+id/text5"
                 android:layout_width="310dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
@@ -114,8 +114,8 @@
                 android:textColor="#000000"
                 />
 
-            <EditText
-                android:id="@+id/editPhone"
+            <TextView
+                android:id="@+id/text6"
                 android:layout_width="310dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
@@ -129,8 +129,8 @@
                 android:textColor="#000000"
                 />
 
-            <EditText
-                android:id="@+id/editEmail"
+            <TextView
+                android:id="@+id/text7"
                 android:layout_width="310dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
@@ -143,8 +143,8 @@
                 android:padding="3dp"
                 android:textColor="#000000"/>
 
-            <EditText
-                android:id="@+id/editFax"
+            <TextView
+                android:id="@+id/text8"
                 android:layout_width="310dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
@@ -158,8 +158,8 @@
                 android:textColor="#000000"
                 />
 
-            <EditText
-                android:id="@+id/editmK"
+            <TextView
+                android:id="@+id/text9"
                 android:layout_width="310dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
@@ -172,8 +172,8 @@
                 android:padding="3dp"
                 android:textColor="#000000"
                 />
-            <EditText
-                android:id="@+id/editAir"
+            <TextView
+                android:id="@+id/editmK"
                 android:layout_width="310dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
@@ -186,8 +186,8 @@
                 android:padding="3dp"
                 android:textColor="#000000"
                 />
-            <EditText
-                android:id="@+id/edithour"
+            <TextView
+                android:id="@+id/editAir"
                 android:layout_width="310dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
@@ -200,8 +200,8 @@
                 android:padding="3dp"
                 android:textColor="#000000"
                 />
-            <EditText
-                android:id="@+id/editAddress"
+            <TextView
+                android:id="@+id/edithour"
                 android:layout_width="310dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"

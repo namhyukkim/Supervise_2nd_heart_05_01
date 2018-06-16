@@ -184,7 +184,7 @@ public class AdminMoreInfo extends AppCompatActivity {
             }
 
             ListAdapter adapter = new SimpleAdapter(
-                    AdminMoreInfo.this, mArrayList, R.layout.more_infolist,
+                    AdminMoreInfo.this, mArrayList, R.layout.admin_customer_detail,
                     new String[]{TAG_ID, TAG_PASSWORD, TAG_CUSTOMER, TAG_REPRESENTATIV, TAG_CRN, TAG_PHONE, TAG_EMAIL, TAG_FAX, TAG_ADDRESS},
                     new int[]{R.id.text1, R.id.text2, R.id.text3, R.id.text4, R.id.text5, R.id.text6, R.id.text7, R.id.text8, R.id.text9}
             );
