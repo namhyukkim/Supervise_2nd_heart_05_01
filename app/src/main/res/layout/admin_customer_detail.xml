@@ -38,7 +38,7 @@
                 <EditText
                     android:id="@+id/idtext"
                     android:layout_width="310dp"
-                    android:layout_height="40dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:background="@drawable/layout_border"
                     android:drawableLeft="@drawable/join_id"
@@ -56,7 +56,7 @@
             <EditText
                 android:id="@+id/userPassword"
                 android:layout_width="310dp"
-                android:layout_height="40dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="3dp"
                 android:background="@drawable/layout_border"
@@ -72,7 +72,7 @@
             <EditText
                 android:id="@+id/userCompany"
                 android:layout_width="310dp"
-                android:layout_height="40dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="3dp"
                 android:background="@drawable/layout_border"
@@ -87,7 +87,7 @@
             <EditText
                 android:id="@+id/editRepresentation"
                 android:layout_width="310dp"
-                android:layout_height="40dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="3dp"
                 android:background="@drawable/layout_border"
@@ -102,7 +102,7 @@
             <EditText
                 android:id="@+id/editCompanyNum"
                 android:layout_width="310dp"
-                android:layout_height="40dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="3dp"
                 android:background="@drawable/layout_border"
@@ -117,7 +117,7 @@
             <EditText
                 android:id="@+id/editPhone"
                 android:layout_width="310dp"
-                android:layout_height="40dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="3dp"
                 android:background="@drawable/layout_border"
@@ -132,7 +132,7 @@
             <EditText
                 android:id="@+id/editEmail"
                 android:layout_width="310dp"
-                android:layout_height="40dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="3dp"
                 android:background="@drawable/layout_border"
@@ -146,7 +146,7 @@
             <EditText
                 android:id="@+id/editFax"
                 android:layout_width="310dp"
-                android:layout_height="40dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="3dp"
                 android:background="@drawable/layout_border"
@@ -159,9 +159,9 @@
                 />
 
             <EditText
-                android:id="@+id/editAddress"
+                android:id="@+id/editmK"
                 android:layout_width="310dp"
-                android:layout_height="40dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="3dp"
                 android:background="@drawable/layout_border"
@@ -169,6 +169,48 @@
                 android:drawableLeft="@drawable/join_ad"
                 android:drawablePadding="20dp"
                 android:hint="주소"
+                android:padding="3dp"
+                android:textColor="#000000"
+                />
+            <EditText
+                android:id="@+id/editAir"
+                android:layout_width="310dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/layout_border"
+                android:drawableStart="@drawable/join_compressor"
+                android:drawableLeft="@drawable/join_compressor"
+                android:drawablePadding="20dp"
+                android:hint="기기종류"
+                android:padding="3dp"
+                android:textColor="#000000"
+                />
+            <EditText
+                android:id="@+id/edithour"
+                android:layout_width="310dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/layout_border"
+                android:drawableStart="@drawable/join_compressor"
+                android:drawableLeft="@drawable/join_compressor"
+                android:drawablePadding="20dp"
+                android:hint="압력"
+                android:padding="3dp"
+                android:textColor="#000000"
+                />
+            <EditText
+                android:id="@+id/editAddress"
+                android:layout_width="310dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/layout_border"
+                android:drawableStart="@drawable/join_compressor"
+                android:drawableLeft="@drawable/join_compressor"
+                android:drawablePadding="20dp"
+                android:hint="시간"
                 android:padding="3dp"
                 android:textColor="#000000"
                 />
