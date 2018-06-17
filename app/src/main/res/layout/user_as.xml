@@ -40,17 +40,16 @@
         <LinearLayout
             android:layout_width="380dp"
             android:layout_height="80dp"
-
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:orientation="horizontal"
             android:background="@drawable/layout_border">
-        <EditText
+            <EditText
             android:layout_width="310dp"
             android:layout_height="match_parent"
             android:hint="         입력하세여"
-            android:textColorHint="#4E5FA2"/>
-
+            android:textColorHint="#4E5FA2"
+            android:id="@+id/editAsRequest"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -98,6 +97,7 @@
         android:background="@drawable/button_border"
         >
         <Button
+            android:id="@+id/btnAsRequest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -114,10 +114,7 @@
         android:layout_marginBottom="3dp"
         android:gravity="center"
         android:orientation="vertical"
-
         >
-
-
     </LinearLayout>
 
 

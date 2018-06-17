@@ -31,7 +31,7 @@ dependencies {
     compile 'com.roughike:bottom-bar:2.3.1'
     compile 'com.tsengvn:Typekit:1.0.0'
 
-    implementation 'com.google.android.gms:play-services-maps:10.2.6'
-    implementation 'com.google.android.gms:play-services-location:10.2.6'
+    implementation 'com.google.android.gms:play-services-maps:11.0.2'
+    implementation 'com.google.android.gms:play-services-location:11.0.2'
 
 }

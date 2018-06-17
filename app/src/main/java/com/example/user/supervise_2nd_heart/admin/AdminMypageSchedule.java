@@ -2,8 +2,12 @@ package com.example.user.supervise_2nd_heart.admin;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,120 +15,119 @@ import android.widget.TableRow;
 import android.widget.Toast;
 
 import com.example.user.supervise_2nd_heart.R;
+import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
+import com.google.android.gms.maps.GoogleMap.OnMapLongClickListener;
+import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 
-public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback {
-    TableRow[] tableRow;
+import java.util.ArrayList;
 
-
+public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,GoogleMap.OnMapClickListener,GoogleMap.OnMapLongClickListener,GoogleMap.OnInfoWindowClickListener {
     private MapView mapView = null;
+    Context context;
+    GoogleMap mGoogleMap;
+    private PolylineOptions polylineOptions;
+    private ArrayList<LatLng> arrayPoints;
+    MapFragment mapFragment;
+    FragmentManager fragmentManager;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
     }
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.admin_mypage_schedule, null);
-        TableRow table1 = (TableRow) view.findViewById(R.id.table1);
+
+        context = container.getContext();
+        GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(context);
+        MapsInitializer.initialize(context);
+
+        fragmentManager =getFragmentManager();
+        mapFragment = (MapFragment) fragmentManager.findFragmentById(R.id.map3);
+        mapFragment.getMapAsync(this);
 
 
-        mapView = (MapView) view.findViewById(R.id.map);
-        mapView.getMapAsync(this);
 
-
-        table1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(getActivity(), "바보야", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
+        MapsInitializer.initialize(getActivity());
         return view;
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        mapView.onStart();
+    public void onMapReady(GoogleMap googleMap) {
+
+        mGoogleMap = googleMap;
+        mGoogleMap.setOnMapClickListener(this);
+        mGoogleMap.setOnMapLongClickListener(this);
+        String coordinates[] = { "37.517180", "127.041268" };
+        double lat = Double.parseDouble(coordinates[0]);
+        double lng = Double.parseDouble(coordinates[1]);
+
+        LatLng position = new LatLng(lat, lng);
+        GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity());
+
+        // 맵 위치이동.
+        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 15));
+
+        arrayPoints = new ArrayList<LatLng>();
+
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
-        mapView.onStop();
-    }
+    public void onMapClick(LatLng latLng) {
+        MarkerOptions marker=new MarkerOptions();
+        marker.position(latLng);
+        mGoogleMap.addMarker(marker);
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        mapView.onSaveInstanceState(outState);
-    }
+        // 맵셋팅
+        polylineOptions = new PolylineOptions();
+        polylineOptions.color(Color.RED);
+        polylineOptions.width(5);
+        arrayPoints.add(latLng);
+        polylineOptions.addAll(arrayPoints);
+        mGoogleMap.addPolyline(polylineOptions);
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        mapView.onResume();
-    }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        mapView.onPause();
-    }
+        for (int i = 0; i < arrayPoints.size(); i++){
 
-    @Override
-    public void onLowMemory() {
-        super.onLowMemory();
-        mapView.onLowMemory();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        mapView.onLowMemory();
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-//액티비티가 처음 생성될 때 실행되는 함수
-
-        if (mapView != null) {
-            mapView.onCreate(savedInstanceState);
+            Double latitude = arrayPoints.get(i).latitude;
+            Double longitude = arrayPoints.get(i).longitude;
+            Log.e("-_-",i + "  " + latitude+ " " +longitude );
         }
     }
 
     @Override
-    public void onMapReady(GoogleMap googleMap) {
-        LatLng SEOUL = new LatLng(37.56, 126.97);
-
-        MarkerOptions markerOptions = new MarkerOptions();
-
-        markerOptions.position(SEOUL);
-
-        markerOptions.title("서울");
-
-        markerOptions.snippet("수도");
-
-        googleMap.addMarker(markerOptions);
-
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
-
-        googleMap.animateCamera(CameraUpdateFactory.zoomTo(13));
+    public void onInfoWindowClick(Marker marker) {
 
     }
 
+    @Override
+    public void onMapLongClick(LatLng latLng) {
+        mGoogleMap.clear();
+        arrayPoints.clear();
+    }
 }
