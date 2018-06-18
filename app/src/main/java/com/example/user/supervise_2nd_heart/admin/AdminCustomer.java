@@ -115,7 +115,6 @@ public class AdminCustomer extends Fragment {
                                 startActivity(intent);
                             }
                         }
-
                     }
                 }
 
@@ -290,7 +289,7 @@ public class AdminCustomer extends Fragment {
                 hashMap.put(TAG_ID, id);
                 hashMap.put(TAG_PASSWORD, password);
                 hashMap.put(TAG_CUSTOMER, customer);
-                //System.out.println(id + "\t" + password + "\t" + customer);
+
                 mArrayList.add(hashMap);
             }
             ListAdapter ListAdapter = new SimpleAdapter(

@@ -100,14 +100,36 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
         //////////////////////////ListView//////////////////
         //////////////////////가보자 시발//////////////////////
         gc = container.getContext();
-        getAddress();
+        Log.e("userCusutomer", TAG_USERCUSTOMER);
+        /*for (int i = 0; i< 3;i++){
+            Log.e("-_-", "포문은 돌아간다 이 병신새끼야");
+
+        }*/
+
 
 
         //////////////////////가보자 시발 끝///////////////////
         return view;
     }
-    //////////////////////////가보자 시발//////////////////
-    private void getAddress(){
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+
+        mGoogleMap = googleMap;
+        mGoogleMap.setOnMapClickListener(this);
+        mGoogleMap.setOnMapLongClickListener(this);
+        String coordinates[] = { "37.566535", "126.97796919999999" };
+        double lat = Double.parseDouble(coordinates[0]);
+        double lng = Double.parseDouble(coordinates[1]);
+
+        LatLng position = new LatLng(lat, lng);
+        GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity());
+
+        // 맵 위치이동.
+        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 15));
+
+        arrayPoints = new ArrayList<LatLng>();
+        /////////////////////////////////////////시이바알///////////////////////////////////////////////
 
         Geocoder geocoder = new Geocoder(gc);
         List<Address> list = null;
@@ -134,37 +156,11 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
                 mapFragment.getMapAsync(this);
 
             }
-        }
-    }
-    //////////////////////////가보자 시발 끝//////////////////
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-
-        mGoogleMap = googleMap;
-        mGoogleMap.setOnMapClickListener(this);
-        mGoogleMap.setOnMapLongClickListener(this);
-        String coordinates[] = { "37.566535", "126.97796919999999" };
-        double lat = Double.parseDouble(coordinates[0]);
-        double lng = Double.parseDouble(coordinates[1]);
-
-        LatLng position = new LatLng(lat, lng);
-        GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity());
-
-        // 맵 위치이동.
-        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 15));
-
-        arrayPoints = new ArrayList<LatLng>();
-        /////////////////////////////////////////시이바알
-        MarkerOptions markerOptions = new MarkerOptions();
+        } MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(hi);
         mGoogleMap.addMarker(markerOptions);
 
-        for (int i = 0; i< 3;i++){
-            Log.e("-_-", "포문은 돌아간다 이 병신새끼야");
-
-        }
-
-        ///////////////////////////////////////시이바알
+        ///////////////////////////////////////시이바알/////////////////////////////////////////////////
 
     }
 
@@ -181,7 +177,6 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
         arrayPoints.add(latLng);
         polylineOptions.addAll(arrayPoints);
         mGoogleMap.addPolyline(polylineOptions);
-
 
         for (int i = 0; i < arrayPoints.size(); i++){
 
@@ -232,10 +227,8 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
             String postParameters = "customer=" + searchKeyword;
 
             try {
-
                 URL url = new URL(serverURL);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-
                 httpURLConnection.setReadTimeout(5000);
                 httpURLConnection.setConnectTimeout(5000);
                 httpURLConnection.setRequestMethod("POST");
