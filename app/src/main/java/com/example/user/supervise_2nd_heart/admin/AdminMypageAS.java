@@ -79,8 +79,6 @@ public class AdminMypageAS extends Fragment implements OnMapReadyCallback,View.O
         googleMap.addMarker(markerOptions);
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(hi));
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(13));
-
-
     }
 
     @Override
@@ -113,7 +111,5 @@ public class AdminMypageAS extends Fragment implements OnMapReadyCallback,View.O
                 //          list.get(0).getLongitude();    // 경도
             }
         }
-
     }
-
 }

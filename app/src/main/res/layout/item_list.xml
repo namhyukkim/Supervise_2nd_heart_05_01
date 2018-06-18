@@ -15,7 +15,6 @@
         android:layout_margin="5dp"
         android:padding="5dp" />
 
-
     <TextView
         android:id="@+id/textView_list_password"
         android:layout_width="80dp"
@@ -24,7 +23,6 @@
         android:layout_margin="5dp"
         android:padding="5dp" />
 
-
     <TextView
         android:id="@+id/textView_list_Customer"
         android:layout_width="80dp"
@@ -32,6 +30,5 @@
         android:layout_weight="5"
         android:layout_margin="5dp"
         android:padding="5dp" />
-
 
 </LinearLayout>

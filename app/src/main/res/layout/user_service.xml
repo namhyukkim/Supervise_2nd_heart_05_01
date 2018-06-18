@@ -2,9 +2,10 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
-<TextView
+<EditText
+    android:id="@+id/texttest1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:text="보2루"
+    android:hint="보2루"
     android:textSize="100dp"/>
 </android.support.constraint.ConstraintLayout>

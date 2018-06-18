@@ -71,7 +71,6 @@ public class AdminCustomer extends Fragment {
             public void onClick(View v) {
                 mArrayList.clear();
 
-
                 GetData task = new GetData();
 
                 task.execute(mEditTextSearchKeyword.getText().toString());
@@ -84,7 +83,6 @@ public class AdminCustomer extends Fragment {
                             intent.putExtra("info", mEditTextSearchKeyword.getText().toString());
                             startActivity(intent);
                         }
-
                     }
                 });
 

@@ -33,7 +33,6 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity {
     //-->기존 Activtiy보다 AppCompatAc가 상위임 바꾼 이유는 http://hashcode.co.kr/questions/1487/ 참고
 
-
     private AlertDialog dialog;
 
     @Override

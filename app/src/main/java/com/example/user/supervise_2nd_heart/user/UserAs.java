@@ -27,6 +27,7 @@ public class UserAs extends Fragment {
     DatePicker datePicker;
     EditText editAsRequest;
     Button btnAsRequest;
+    String userCustomer;
     String comState;
     String asDate;
     AlertDialog dialog;
