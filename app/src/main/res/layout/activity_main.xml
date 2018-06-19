@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F2F2F2"
+    >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/logo"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:id="@+id/ID"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:textSize="18dp"
+            android:hint="  아이디"
+            android:background="@drawable/back"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:lines="1"
+            android:textColorHighlight="#FFFFFF"
+            />
+        <EditText
+            android:id="@+id/PW"
+
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:textSize="18dp"
+            android:hint="  비밀번호"
+            android:password="true"
+            android:background="@drawable/back"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:lines="1"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp">
+        <Button
+            android:id="@+id/AdminLoginBtn"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="관리자로 로그인"
+            android:textSize="17dp"
+            android:textColor="#FFFFFF"
+            android:background="#030066"
+            android:layout_marginRight="5dp"/>
+        <Button
+            android:id="@+id/UserLoginBtn"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="사용자로 로그인"
+            android:textSize="17dp"
+            android:textColor="#FFFFFF"
+            android:background="#5D5D5D"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:padding="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="COPYRIGHT(C) 2018. 99 ALL RIGHTS RESERVED"
+            android:drawableEnd="@drawable/teamlogo"
+            android:textColor="#5D5D5D"/>
+    </LinearLayout>
+
+
+</LinearLayout>

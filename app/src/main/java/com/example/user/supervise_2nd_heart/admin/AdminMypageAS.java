@@ -2,25 +2,20 @@ package com.example.user.supervise_2nd_heart.admin;
 
 import android.app.FragmentManager;
 import android.content.Context;
-import android.content.Intent;
 import android.app.Fragment;
+import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.user.supervise_2nd_heart.List1;
 import com.example.user.supervise_2nd_heart.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -28,20 +23,25 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static android.media.CamcorderProfile.get;
 
-public class AdminMypageAS extends Fragment implements OnMapReadyCallback,View.OnClickListener {
+public class AdminMypageAS extends Fragment implements OnMapReadyCallback,View.OnClickListener,GoogleMap.OnMapClickListener,GoogleMap.OnMapLongClickListener,GoogleMap.OnInfoWindowClickListener {
 
     Button btnSearch0;
     EditText editSearch0;
     Context ct;
     LatLng hi;
-
+    private PolylineOptions polylineOptions;
+    private ArrayList<LatLng> arrayPoints;
+    GoogleMap googleMap;
     private MapView mapView = null;
     double lat, lon;
     MapFragment mf;
@@ -64,7 +64,7 @@ public class AdminMypageAS extends Fragment implements OnMapReadyCallback,View.O
         mf.getMapAsync(this);
         btnSearch0.setOnClickListener(this);
         ////////얍 얍 얍 얍 얍 얍 얍 얍///////////////////
-
+        arrayPoints = new ArrayList<LatLng>();
 
         ////////얍 얍 얍 얍 얍 얍 얍 얍///////////////////
         return view; // 따라서 이곳으로 return 이 와야 합니다.
@@ -79,6 +79,7 @@ public class AdminMypageAS extends Fragment implements OnMapReadyCallback,View.O
         googleMap.addMarker(markerOptions);
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(hi));
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(13));
+
     }
 
     @Override
@@ -106,10 +107,40 @@ public class AdminMypageAS extends Fragment implements OnMapReadyCallback,View.O
                 hi = new LatLng(lat,lon);
                 Log.e("hi","위경도" + lat+"  "+lon +"  " +hi);
                 mf.getMapAsync(this);
-                //          list.get(0).getCountryName();  // 국가명
-                //          list.get(0).getLatitude();        // 위도
-                //          list.get(0).getLongitude();    // 경도
             }
         }
+    }
+
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+
+    }
+
+    @Override
+    public void onMapClick(LatLng latLng) {
+        MarkerOptions marker=new MarkerOptions();
+        marker.position(latLng);
+        googleMap.addMarker(marker);
+
+        // 맵셋팅
+        polylineOptions = new PolylineOptions();
+        polylineOptions.color(Color.RED);
+        polylineOptions.width(5);
+        arrayPoints.add(latLng);
+        polylineOptions.addAll(arrayPoints);
+        googleMap.addPolyline(polylineOptions);
+
+        for (int i = 0; i < arrayPoints.size(); i++){
+
+            Double latitude = arrayPoints.get(i).latitude;
+            Double longitude = arrayPoints.get(i).longitude;
+            Log.e("-_-",i + "  " + latitude+ " " +longitude );
+        }
+    }
+
+    @Override
+    public void onMapLongClick(LatLng latLng) {
+        googleMap.clear();
+        arrayPoints.clear();
     }
 }

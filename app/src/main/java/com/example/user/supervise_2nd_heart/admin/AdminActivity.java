@@ -3,6 +3,7 @@ package com.example.user.supervise_2nd_heart.admin;
 import android.app.ActionBar;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,6 +19,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.example.user.supervise_2nd_heart.MainActivity;
 import com.example.user.supervise_2nd_heart.R;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
@@ -157,8 +159,9 @@ public class AdminActivity extends AppCompatActivity
             manager.beginTransaction().replace(R.id.content_main, new AdminCustomer()).addToBackStack(null).commit();
             back2.setVisibility(View.INVISIBLE);
 
-        } else if (id == R.id.nav_share) {
-
+        } else if (id == R.id.nav_logout) {
+            Intent intent1 = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent1);
         } else if (id == R.id.nav_send) {
 
         }

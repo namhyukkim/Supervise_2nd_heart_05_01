@@ -99,14 +99,10 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
         task2.execute("http://211.115.254.166:8282/AdminMypageSchedule.php");
         //////////////////////////ListView//////////////////
         //////////////////////가보자 시발//////////////////////
+/*
         gc = container.getContext();
         Log.e("userCusutomer", TAG_USERCUSTOMER);
-        /*for (int i = 0; i< 3;i++){
-            Log.e("-_-", "포문은 돌아간다 이 병신새끼야");
-
-        }*/
-
-
+*/
 
         //////////////////////가보자 시발 끝///////////////////
         return view;
@@ -130,7 +126,7 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
 
         arrayPoints = new ArrayList<LatLng>();
         /////////////////////////////////////////시이바알///////////////////////////////////////////////
-
+        /*String good[]={"서울",""};
         Geocoder geocoder = new Geocoder(gc);
         List<Address> list = null;
         String str = "서울";
@@ -158,7 +154,7 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
             }
         } MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(hi);
-        mGoogleMap.addMarker(markerOptions);
+        mGoogleMap.addMarker(markerOptions);*/
 
         ///////////////////////////////////////시이바알/////////////////////////////////////////////////
 

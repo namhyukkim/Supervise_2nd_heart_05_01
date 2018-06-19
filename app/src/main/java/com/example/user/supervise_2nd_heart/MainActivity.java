@@ -31,9 +31,15 @@ import org.json.JSONObject;
 
 
 public class MainActivity extends AppCompatActivity {
+    public static String userID;
     //-->기존 Activtiy보다 AppCompatAc가 상위임 바꾼 이유는 http://hashcode.co.kr/questions/1487/ 참고
 
     private AlertDialog dialog;
+
+    private static String TAG = "phptest_MainActivity";
+
+    String mJsonString;
+
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -42,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_main);
 
         //폰트적용
         //Typeface typeface = Typeface.createFromAsset(getAssets(),"fonts/yetnal.ttf");
@@ -62,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //------------------------------------------남혁이 수정부분-------------------------------------------//
-                String userID = IDEdit.getText().toString();
+                final String userID = IDEdit.getText().toString();
                 String userPassword = PWEdit.getText().toString();
 
                 Response.Listener<String> resPonseLister = new Response.Listener<String>() {
@@ -74,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
                             if (success) {
                                 Toast.makeText(getApplicationContext(), "환영합니다.", Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(getApplicationContext(), UserMainActivity.class);
+
+                                intent.putExtra("userID", userID);
                                 startActivity(intent);
                                 finish();
                             } else {
@@ -99,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //------------------------------------------남혁이 수정부분-------------------------------------------//
-                String userID = IDEdit.getText().toString();
+                final String userID = IDEdit.getText().toString();
                 String userPassword = PWEdit.getText().toString();
 
                 Response.Listener<String> resPonseLister = new Response.Listener<String>() {
@@ -137,6 +145,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+
     @Override
     protected void onStop() {
         super.onStop();
@@ -146,4 +156,3 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
-

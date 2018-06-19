@@ -24,7 +24,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="30dp"
         android:background="@drawable/layout_border"
         >
 
@@ -47,7 +46,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/idText"
+            android:text="아이디"
+            android:gravity="right"
+            android:paddingRight="50dp"
+            android:textColor="#000000"
+            android:textStyle="bold"
 
+            android:textSize="15dp" />
         <Button
             android:layout_width="match_parent"
             android:layout_height="60dp"

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="40dp">
+
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:background="#2C88C9"
+        android:drawableLeft="@drawable/join_id"
+        android:drawablePadding="20dp"
+        android:drawableStart="@drawable/join_id"
+        android:hint=" 아이디"
+        android:padding="3dp"
+        android:textColor="#ffffff" />
+
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="3dp"
+        android:background="#2C88C9"
+        android:drawableLeft="@drawable/join_pw"
+        android:drawablePadding="20dp"
+        android:drawableStart="@drawable/join_pw"
+        android:hint="비밀번호"
+        android:padding="3dp"
+        android:password="true"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff" />
+
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="3dp"
+        android:background="#2C88C9"
+        android:drawableLeft="@drawable/join_comp"
+        android:drawablePadding="20dp"
+        android:drawableStart="@drawable/join_comp"
+        android:hint="거래처명"
+        android:padding="3dp"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff" />
+
+    <TextView
+        android:id="@+id/text4"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="3dp"
+        android:background="#2C88C9"
+        android:drawableLeft="@drawable/join_id"
+        android:drawablePadding="20dp"
+        android:drawableStart="@drawable/join_id"
+        android:hint=" 대표자"
+        android:padding="3dp"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff" />
+
+    <TextView
+        android:id="@+id/text5"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="3dp"
+        android:background="#2C88C9"
+        android:drawableLeft="@drawable/join_ad"
+        android:drawablePadding="20dp"
+        android:drawableStart="@drawable/join_ad"
+        android:hint="사업자 번호"
+        android:padding="3dp"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff" />
+
+    <TextView
+        android:id="@+id/text6"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="3dp"
+        android:background="#2C88C9"
+        android:drawableLeft="@drawable/join_hp"
+        android:drawablePadding="20dp"
+        android:drawableStart="@drawable/join_hp"
+        android:hint="전화번호"
+        android:padding="3dp"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff" />
+
+    <TextView
+        android:id="@+id/text7"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="3dp"
+        android:background="#2C88C9"
+        android:drawableLeft="@drawable/join_email"
+        android:drawablePadding="20dp"
+        android:drawableStart="@drawable/join_email"
+        android:hint="E-Mail"
+        android:padding="3dp"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff" />
+
+    <TextView
+        android:id="@+id/text8"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="3dp"
+        android:background="#2C88C9"
+        android:drawableLeft="@drawable/join_fax"
+        android:drawablePadding="20dp"
+        android:drawableStart="@drawable/join_fax"
+        android:hint="팩스번호"
+        android:padding="3dp"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff" />
+
+    <TextView
+        android:id="@+id/text9"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="3dp"
+        android:background="#2C88C9"
+        android:drawableLeft="@drawable/join_ad"
+        android:drawablePadding="20dp"
+        android:drawableStart="@drawable/join_ad"
+        android:hint="주소"
+        android:padding="3dp"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff" />
+</LinearLayout>
+

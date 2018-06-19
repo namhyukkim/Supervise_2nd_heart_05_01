@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".admin.Main2Activity"
     android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
@@ -38,7 +39,7 @@
     </android.support.design.widget.AppBarLayout>
 
 
-    <include layout="@layout/admin_content_main" />
+    <include layout="@layout/content_main2" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
