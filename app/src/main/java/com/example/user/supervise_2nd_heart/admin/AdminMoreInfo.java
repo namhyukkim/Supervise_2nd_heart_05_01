@@ -196,8 +196,5 @@ public class AdminMoreInfo extends AppCompatActivity {
         }
 
     }
-    public void test(){
-
-    }
 
 }

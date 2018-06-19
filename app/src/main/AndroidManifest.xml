@@ -34,6 +34,11 @@
         <activity android:name=".user.UserMainActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".admin.AdminMoreInfo"/>
+        <activity
+            android:name=".admin.OnOff"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDUT_3mHFzBWPaKxpacXz-UgbUTv-HPFic"/>

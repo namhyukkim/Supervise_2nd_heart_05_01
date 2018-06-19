@@ -2,24 +2,23 @@ package com.example.user.supervise_2nd_heart.user;
 
 public class User {
 
-    String userID;
-    String userPassword;
+
     String userCustomer;
+    String userMk;
+    String temp;
+    String ampere;
+    String voltage;
+    String watt;
+    String atmospheric;
 
-    public String getUserID() {
-        return userID;
-    }
-
-    public void setUserID(String userID) {
-        this.userID = userID;
-    }
-
-    public String getUserPassword() {
-        return userPassword;
-    }
-
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public User(String userCustomer, String userMk, String temp, String ampere, String voltage, String watt, String atmospheric) {
+        this.userCustomer = userCustomer;
+        this.userMk = userMk;
+        this.temp = temp;
+        this.ampere = ampere;
+        this.voltage = voltage;
+        this.watt = watt;
+        this.atmospheric = atmospheric;
     }
 
     public String getUserCustomer() {
@@ -30,9 +29,51 @@ public class User {
         this.userCustomer = userCustomer;
     }
 
-    public User(String userID, String userPassword, String userCustomer) {
-        this.userID = userID;
-        this.userPassword = userPassword;
-        this.userCustomer = userCustomer;
+    public String getUserMk() {
+        return userMk;
+    }
+
+    public void setUserMk(String userMk) {
+        this.userMk = userMk;
+    }
+
+    public String getTemp() {
+        return temp;
+    }
+
+    public void setTemp(String temp) {
+        this.temp = temp;
+    }
+
+    public String getAmpere() {
+        return ampere;
+    }
+
+    public void setAmpere(String ampere) {
+        this.ampere = ampere;
+    }
+
+    public String getVoltage() {
+        return voltage;
+    }
+
+    public void setVoltage(String voltage) {
+        this.voltage = voltage;
+    }
+
+    public String getWatt() {
+        return watt;
+    }
+
+    public void setWatt(String watt) {
+        this.watt = watt;
+    }
+
+    public String getAtmospheric() {
+        return atmospheric;
+    }
+
+    public void setAtmospheric(String atmospheric) {
+        this.atmospheric = atmospheric;
     }
 }
