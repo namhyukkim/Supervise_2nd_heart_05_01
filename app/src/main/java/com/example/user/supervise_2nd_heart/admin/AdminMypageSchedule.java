@@ -46,7 +46,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,GoogleMap.OnMapClickListener,GoogleMap.OnMapLongClickListener,GoogleMap.OnInfoWindowClickListener {
     private MapView mapView = null;
@@ -71,6 +73,7 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
     Context gc;
     double lat1, lon1;
     LatLng hi;
+    String addressValue;
     /////////////////가보자 시발/////////////////
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -108,57 +111,6 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
         return view;
     }
 
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-
-        mGoogleMap = googleMap;
-        mGoogleMap.setOnMapClickListener(this);
-        mGoogleMap.setOnMapLongClickListener(this);
-        String coordinates[] = { "37.566535", "126.97796919999999" };
-        double lat = Double.parseDouble(coordinates[0]);
-        double lng = Double.parseDouble(coordinates[1]);
-
-        LatLng position = new LatLng(lat, lng);
-        GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity());
-
-        // 맵 위치이동.
-        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 15));
-
-        arrayPoints = new ArrayList<LatLng>();
-        /////////////////////////////////////////시이바알///////////////////////////////////////////////
-        /*String good[]={"서울",""};
-        Geocoder geocoder = new Geocoder(gc);
-        List<Address> list = null;
-        String str = "서울";
-        try {
-            list = geocoder.getFromLocationName(
-                    str, // 지역 이름
-                    10); // 읽을 개수
-        } catch (IOException e) {
-            e.printStackTrace();
-            Log.e("test","입출력 오류 - 서버에서 주소변환시 에러발생");
-        }
-        if (list != null) {
-            if (list.size() == 0) {
-                Toast.makeText(getContext(), "NO!!!!!", Toast.LENGTH_SHORT).show();
-            } else {
-                Log.e("list","들어오긴한다 병신아");
-
-                lat1 = list.get(0).getLatitude();
-                lon1 = list.get(0).getLongitude();
-
-                hi = new LatLng(lat1,lon1);
-                Log.e("hi","위경도" + lat1+"  "+lon1 +"  " +hi);
-                mapFragment.getMapAsync(this);
-
-            }
-        } MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(hi);
-        mGoogleMap.addMarker(markerOptions);*/
-
-        ///////////////////////////////////////시이바알/////////////////////////////////////////////////
-
-    }
 
     @Override
     public void onMapClick(LatLng latLng) {
@@ -212,6 +164,7 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
 
             mJsonString = result;
             showResult();
+            address();
         }
 
         @Override
@@ -284,16 +237,103 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
                 hashMap.put(TAG_ASDATE, asdate);
 
                 mArrayList.add(hashMap);
+                ///////////////////////////////////////
+                JSONObject jsonObject1 = new JSONObject(hashMap);
+                addressValue = jsonObject1.getString("comState");
+                Iterator iterator = jsonObject1.keys();
+                ArrayList<String> addressKeyList = new ArrayList<>();
+                Log.e("여긴돌아요",addressValue );
+                while (iterator.hasNext()){
+                    String b = iterator.next().toString();
+                    Log.e("제발시발럼아",b );
+                    addressKeyList.add(b);
+                }
+                //////////////////////////////////////
+
             }
             ListAdapter ListAdapter = new SimpleAdapter(
                     getActivity(), mArrayList, R.layout.item_list,
                     new String[]{TAG_USERCUSTOMER, TAG_COMSTATE, TAG_ASDATE},
                     new int[]{R.id.textView_list_id, R.id.textView_list_password, R.id.textView_list_Customer}
-            );
+                    );
+
             AsListview.setAdapter(ListAdapter);
         } catch (JSONException e) {
             Log.d("ㅎㅇ", "showResult : ", e);
         }
     }
     //////////////////////////리스트뷰 끝/////////////////////////////////////
+    private void address(){
+        /////////////////////////////////////////시이바알///////////////////////////////////////////////
+        List<Address> list = null;
+        final Geocoder geocoder = new Geocoder(context);
+
+        String str = addressValue;
+        if (addressValue == null){
+            Log.e("ㅂㅅ", "주소값 비엇음 병신아");
+        }else{
+            try {
+                list = geocoder.getFromLocationName(
+                        str, // 지역 이름
+                        1); // 읽을 개수
+            } catch (IOException e) {
+                e.printStackTrace();
+                Log.e("test","입출력 오류 - 서버에서 주소변환시 에러발생");
+            }
+        }
+
+        if (list != null) {
+            if (list.size() == 0) {
+                Toast.makeText(getContext(), "NO!!!!!", Toast.LENGTH_SHORT).show();
+            } else {
+                Log.e("list","들어오긴한다 병신아");
+
+                lat1 = list.get(0).getLatitude();
+                lon1 = list.get(0).getLongitude();
+
+                hi = new LatLng(lat1,lon1);
+                Log.e("hi","위경도" + lat1+"  "+lon1 +"  " +hi);
+                mapFragment.getMapAsync(this);
+
+            }
+        }
+        MarkerOptions markerOptions=new MarkerOptions();
+        markerOptions.position(hi);
+        mGoogleMap.addMarker(markerOptions);
+        ///////////////////////////////////////시이바알/////////////////////////////////////////////////
+
+    }
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+
+        mGoogleMap = googleMap;
+        mGoogleMap.setOnMapClickListener(this);
+        mGoogleMap.setOnMapLongClickListener(this);
+        String coordinates[] = {"37.3616703","126.9351741" };
+        double lat = Double.parseDouble(coordinates[0]);
+        double lng = Double.parseDouble(coordinates[1]);
+
+        LatLng position = new LatLng(lat, lng);
+        GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity());
+
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(position);
+
+        mGoogleMap.addMarker(markerOptions);
+        LatLng dangdong = new LatLng(37.354100, 126.942763);
+        LatLng anyang = new LatLng(37.394252699999996,126.9568209);
+        LatLng gmjung = new LatLng(37.372148, 126.943418);
+        markerOptions.position(dangdong);
+        googleMap.addMarker(markerOptions);
+        markerOptions.position(anyang);
+        googleMap.addMarker(markerOptions);
+        markerOptions.position(gmjung);
+        googleMap.addMarker(markerOptions);
+
+        // 맵 위치이동.
+        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 15));
+
+        arrayPoints = new ArrayList<LatLng>();
+    }
+
 }
