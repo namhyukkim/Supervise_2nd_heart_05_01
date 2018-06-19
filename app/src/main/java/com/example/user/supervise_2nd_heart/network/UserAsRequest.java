@@ -10,9 +10,10 @@ public class UserAsRequest extends StringRequest {
     final static private String URL = "http://211.115.254.166:8282/UserAsRequest.php";
     private Map<String,String>paramters;
 
-    public UserAsRequest(String comState,String asDate,Response.Listener<String> listener){
+    public UserAsRequest(String userCustomer,String comState,String asDate,Response.Listener<String> listener){
         super(Method.POST, URL,listener,null);
         paramters = new HashMap<>();
+        paramters.put("userCustomer",userCustomer);
         paramters.put("comState", comState);
         paramters.put("asDate", asDate);
     }

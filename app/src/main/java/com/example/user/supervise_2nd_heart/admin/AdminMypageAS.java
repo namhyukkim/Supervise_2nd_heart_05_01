@@ -74,10 +74,16 @@ public class AdminMypageAS extends Fragment implements OnMapReadyCallback,View.O
     public void onMapReady(GoogleMap googleMap) {
 
         hi = new LatLng(lat,lon);
+        LatLng gunpo = new LatLng(37.3616703,126.9351741);
+        LatLng anyang = new LatLng(37.394252699999996,126.9568209);
         MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(gunpo);
+        googleMap.addMarker(markerOptions);
+        markerOptions.position(anyang);
+        googleMap.addMarker(markerOptions);
         markerOptions.position(hi);
         googleMap.addMarker(markerOptions);
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(hi));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(gunpo));
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(13));
 
     }

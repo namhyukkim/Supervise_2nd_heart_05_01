@@ -95,11 +95,13 @@ public class UserAs extends Fragment {
                     }
                 });
         idText.setText(getUserID + " 님 환영합니다.");
+
         btnAsRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 comState = editAsRequest.getText().toString();
-                Log.e("ㅎㅇ", comState + " " + asDate + " ");
+
+                Log.e("ㅎㅇ", getUserID+" "+comState + " " + asDate + " ");
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -125,7 +127,7 @@ public class UserAs extends Fragment {
                         }
                     }
                 };
-                UserAsRequest userAsRequest = new UserAsRequest(comState,asDate,responseListener);
+                UserAsRequest userAsRequest = new UserAsRequest(getUserID,comState,asDate,responseListener);
                 RequestQueue queue = Volley.newRequestQueue(getActivity());
                 queue.add(userAsRequest);
             }
