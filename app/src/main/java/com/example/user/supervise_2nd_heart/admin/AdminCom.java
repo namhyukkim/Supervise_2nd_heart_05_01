@@ -110,6 +110,35 @@ public class AdminCom extends Fragment {
 
             }
         });
+        mListViewList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                for (int s=0;s<mArrayList.size();s++)
+                {
+                    if(position==s)
+                    {
+                        // Log.d(TAG, "s값  - " +mArrayList.get(i));
+
+                        HashMap map = new HashMap();
+                        map=mArrayList.get(position);
+
+                        Iterator<String> iterator = map.keySet().iterator();
+                        while (iterator.hasNext()){
+                            String key = (String) iterator.next();
+                            //Log.i("INFO", "key : "+key);
+                            //Log.i("INFO", "value : ska "+mArrayList.get(i).get(key));
+                            if(key=="userMk")
+                            {
+                                //Log.i("INFO", "value : ska "+mArrayList.get(i).get(key));
+                                Intent intent = new Intent(getActivity(), OnOff.class);
+                                intent.putExtra("info", mArrayList.get(position).get(key));
+                                startActivity(intent);
+                            }
+                        }
+                    }
+                }
+            }
+        });
 
         return v;
     }
