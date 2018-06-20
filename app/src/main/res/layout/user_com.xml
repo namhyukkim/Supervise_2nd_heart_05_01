@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".admin.admin_com"
+    tools:context=".admin.AdminCom"
     android:background="#F2F2F2">
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,13 +25,27 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="컴프레서"
+        android:gravity="center"
+        android:textColor="#4C4C4C"
+        android:textSize="20dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/idText"
         android:text="아이디"
         android:gravity="right"
-        android:paddingRight="50dp"
+        android:paddingRight="100dp"
         android:textColor="#000000"
         android:textStyle="bold"
         android:textSize="15dp" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="동기화"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_border_off"
+        android:id="@+id/btnSync_user"/>
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

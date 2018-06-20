@@ -270,7 +270,7 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
 
         String str = addressValue;
         if (addressValue == null){
-            Log.e("ㅂㅅ", "주소값 비엇음 병신아");
+            Log.e("주소값 없음", "  ");
         }else{
             try {
                 list = geocoder.getFromLocationName(
@@ -281,20 +281,16 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
                 Log.e("test","입출력 오류 - 서버에서 주소변환시 에러발생");
             }
         }
-
         if (list != null) {
             if (list.size() == 0) {
-                Toast.makeText(getContext(), "NO!!!!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "오류", Toast.LENGTH_SHORT).show();
             } else {
-                Log.e("list","들어오긴한다 병신아");
-
+                Log.e("list","주소값 확인");
                 lat1 = list.get(0).getLatitude();
                 lon1 = list.get(0).getLongitude();
-
                 hi = new LatLng(lat1,lon1);
                 Log.e("hi","위경도" + lat1+"  "+lon1 +"  " +hi);
                 mapFragment.getMapAsync(this);
-
             }
         }
         MarkerOptions markerOptions=new MarkerOptions();

@@ -51,7 +51,7 @@ public class UserCom extends Fragment {
     ListView mListViewList;
     EditText mEditTextSearchKeyword;
     String mJsonString;
-    Button button_search;
+    Button btnSync_user;
     FragmentManager manager;
 
     private static final String userID = "param1";
@@ -102,14 +102,26 @@ public class UserCom extends Fragment {
         mListViewList = (ListView) v.findViewById(R.id.comListView);
         mArrayList = new ArrayList<HashMap<String, String>>();
         TextView idText = (TextView)v.findViewById(R.id.idText);
-
+        btnSync_user = (Button)v.findViewById(R.id.btnSync_user);
         idText.setText(getUserID + " 님 환영합니다.");
 
         GetData task = new GetData();
         task.execute(getUserID); // 에디트 텍스트에서 값변환하여 입력
 
+
+        btnSync_user.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mArrayList.clear();
+                GetData task2 = new GetData();
+                task2.execute(getUserID);
+            }
+        });
+
         return v;
     }
+
+
 
     // 검색한 데이터를 불러오는 내부 클래스
     private class GetData extends AsyncTask<String, Void, String> {

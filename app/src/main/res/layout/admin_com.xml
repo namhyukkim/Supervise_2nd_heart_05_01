@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".admin.admin_com"
+    tools:context=".admin.AdminCom"
     android:background="#F2F2F2">
 
     <LinearLayout
@@ -14,7 +14,13 @@
         android:orientation="horizontal"
         android:layout_marginBottom="10dp"
         android:background="@drawable/layout_border">
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="컴프레서"
+            android:gravity="center"
+            android:textColor="#4C4C4C"
+            android:textSize="20dp" />
         <EditText
             android:id="@+id/comEditSearch"
             android:layout_width="310dp"
@@ -32,7 +38,13 @@
 
 
     </LinearLayout>
-
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="동기화"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_border_off"
+        android:id="@+id/btnSync"/>
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

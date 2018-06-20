@@ -60,32 +60,40 @@ public class AdminCom extends Fragment {
     private static final String TAG_ATMOSPHERIC = "atmospheric";
 
 
+
+
     ArrayList<HashMap<String, String>> mArrayList;
+    Button btnSync;
     ListView mListViewList;
     EditText mEditTextSearchKeyword;
-    UserListAdapter userListAdapter;
     String mJsonString;
     Button button_search;
+    FragmentManager manager;
 
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        final View v = inflater.inflate(R.layout.admin_com, container, false);
-
+        View v = inflater.inflate(R.layout.admin_com, container, false);
 
         mListViewList = (ListView) v.findViewById(R.id.comListView);
-        mArrayList = new ArrayList<>();
+        mArrayList = new ArrayList<HashMap<String, String>>();
         mEditTextSearchKeyword = (EditText) v.findViewById(R.id.comEditSearch);
 
-        mListViewList.setAdapter(userListAdapter);
-
         button_search = (Button) v.findViewById(R.id.comButtonSearch);
-
-
+        btnSync = (Button)v.findViewById(R.id.btnSync);
         // 전체 회원의 기기정보를 출력함.
         GetData2 task2 = new GetData2();
         task2.execute("http://211.115.254.166:8282/com_loadinfo.php");
+
+        btnSync.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mArrayList.clear();
+                GetData2 task2 = new GetData2();
+                task2.execute("http://211.115.254.166:8282/com_loadinfo.php");
+            }
+        });
 
         // 검색 후 해당 정보를 출력함.
         button_search.setOnClickListener(new View.OnClickListener() {
@@ -99,50 +107,12 @@ public class AdminCom extends Fragment {
                 task.execute(mEditTextSearchKeyword.getText().toString()); // 에디트 텍스트에서 값변환하여 입력
 
 
-            }
-        });
-
-        mListViewList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                for (int s = 0; s < mArrayList.size(); s++) {
-                    if (position == s) {
-                        // Log.d(TAG, "s값  - " +mArrayList.get(i));
-
-                        HashMap map = new HashMap();
-                        map = mArrayList.get(position);
-//                        Log.i("INFO", "key1 : "+mArrayList.get(1));
-//                        Log.i("INFO", "key1 : "+mArrayList.get(2));
-//                        Log.i("INFO", "key1 : "+mArrayList.get(3));
-
-                        Iterator<String> iterator = map.keySet().iterator();
-                        Intent intent = new Intent(getActivity(), OnOff.class);
-                        while (iterator.hasNext()) {
-                            String key = (String) iterator.next();
-
-                            //Log.i("INFO", "key : "+key);
-                            //Log.i("INFO", "value : ska "+mArrayList.get(s).get(key));
-
-
-                            if (key == "userMk") {
-                                Log.i("INFO", "value : ska "+mArrayList.get(s).get(key));
-                                mArrayList.get(position).get(key);
-                                intent.putExtra("data", mArrayList.get(s).get(key));
-                                startActivity(intent);
-                            }
-
-
-                        }
-                    }
-                }
 
             }
         });
-
 
         return v;
     }
-
 
     // 검색한 데이터를 불러오는 내부 클래스
     private class GetData extends AsyncTask<String, Void, String> {
@@ -172,7 +142,7 @@ public class AdminCom extends Fragment {
 
             String searchKeyword = params[0];
             String serverURL = null;
-            serverURL = "http://211.115.254.166:8282/com_datasearch.php";
+            serverURL =  "http://211.115.254.166:8282/com_datasearch.php";
 
             String postParameters = "customer=" + searchKeyword;
             try {
@@ -330,18 +300,14 @@ public class AdminCom extends Fragment {
             }
             ListAdapter ListAdapter = new SimpleAdapter(
                     getActivity(), mArrayList, R.layout.com_table,
-                    new String[]{TAG_CUSTOMER, TAG_MK, TAG_TEMP, TAG_AMPERE, TAG_VOLTAGE, TAG_WATT, TAG_ATMOSPHERIC},
-                    new int[]{R.id.userCustomer_com, R.id.userMk_com, R.id.com_temp, R.id.com_ampere, R.id.com_voltage, R.id.com_watt, R.id.com_atmospheric}
+                    new String[]{TAG_CUSTOMER,TAG_MK, TAG_TEMP, TAG_AMPERE,TAG_VOLTAGE,TAG_WATT,TAG_ATMOSPHERIC},
+                    new int[]{R.id.userCustomer_com,R.id.userMk_com, R.id.com_temp, R.id.com_ampere,R.id.com_voltage,R.id.com_watt,R.id.com_atmospheric}
             );
             mListViewList.setAdapter(ListAdapter);
-
         } catch (JSONException e) {
             Log.d(TAG, "showResult : ", e);
         }
-
-
     }
-
 }
 
 
