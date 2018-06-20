@@ -58,7 +58,7 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
     private ArrayList<LatLng> arrayPoints;
     MapFragment mapFragment;
     FragmentManager fragmentManager;
-/////////////////////////////////////////
+
     String mJsonString;
     private static final String TAG_JSON = "webnautes";
     private static final String TAG_USERCUSTOMER = "userCustomer";
@@ -66,7 +66,7 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
     private static final String TAG_ASDATE = "asDate";
     ArrayList<HashMap<String, String>> mArrayList;
     ListView AsListview;
-    /////////////////가보자 시발/////////////////
+
     String usercustomer ;
     String comstate ;
     String asdate;
@@ -74,7 +74,7 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
     double lat1, lon1;
     LatLng hi;
     String addressValue;
-    /////////////////가보자 시발/////////////////
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,19 +95,12 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
 
         MapsInitializer.initialize(getActivity());
 
-        //////////////////////////ListView//////////////////
+
         AsListview = (ListView)view.findViewById(R.id.aslistview);
         mArrayList = new ArrayList<HashMap<String, String>>();
         GetData2 task2 = new GetData2();
         task2.execute("http://211.115.254.166:8282/AdminMypageSchedule.php");
-        //////////////////////////ListView//////////////////
-        //////////////////////가보자 시발//////////////////////
-/*
-        gc = container.getContext();
-        Log.e("userCusutomer", TAG_USERCUSTOMER);
-*/
 
-        //////////////////////가보자 시발 끝///////////////////
         return view;
     }
 
@@ -130,7 +123,7 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
 
             Double latitude = arrayPoints.get(i).latitude;
             Double longitude = arrayPoints.get(i).longitude;
-            Log.e("-_-",i + "  " + latitude+ " " +longitude );
+            Log.e("좌표값 송출",i + "  " + latitude+ " " +longitude );
         }
     }
     @Override
@@ -141,7 +134,7 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
         mGoogleMap.clear();
         arrayPoints.clear();
     }
-    ///////////////////////////리스트뷰///////////////////////////////////////
+
     private class GetData2 extends AsyncTask<String, Void, String> {
         ProgressDialog progressDialog;
         String errorString = null;
@@ -160,7 +153,7 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
 
             progressDialog.dismiss();
 
-            Log.d("ㅇㅇㅇ", "response  - " + result);
+            Log.d("결과 송출", "response  - " + result);
 
             mJsonString = result;
             showResult();
@@ -190,7 +183,7 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
                 outputStream.close();
 
                 int responseStatusCode = httpURLConnection.getResponseCode();
-                Log.d("ㅁㄴㅇㄹ", "response code - " + responseStatusCode);
+                Log.d("결과송출", "response code - " + responseStatusCode);
 
                 InputStream inputStream;
                 if (responseStatusCode == HttpURLConnection.HTTP_OK) {
@@ -212,7 +205,7 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
                 return sb.toString().trim();
             } catch (Exception e) {
 
-                Log.d("ㅠㅠ", "InsertData: Error ", e);
+                Log.d("에러", "InsertData: Error ", e);
                 errorString = e.toString();
                 return null;
             }
@@ -242,10 +235,10 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
                 addressValue = jsonObject1.getString("comState");
                 Iterator iterator = jsonObject1.keys();
                 ArrayList<String> addressKeyList = new ArrayList<>();
-                Log.e("여긴돌아요",addressValue );
+                Log.e("주소값 확인",addressValue );
                 while (iterator.hasNext()){
                     String b = iterator.next().toString();
-                    Log.e("제발시발럼아",b );
+                    Log.e("iterator 확인",b );
                     addressKeyList.add(b);
                 }
                 //////////////////////////////////////
@@ -259,12 +252,11 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
 
             AsListview.setAdapter(ListAdapter);
         } catch (JSONException e) {
-            Log.d("ㅎㅇ", "showResult : ", e);
+            Log.d("예외", "showResult : ", e);
         }
     }
-    //////////////////////////리스트뷰 끝/////////////////////////////////////
     private void address(){
-        /////////////////////////////////////////시이바알///////////////////////////////////////////////
+
         List<Address> list = null;
         final Geocoder geocoder = new Geocoder(context);
 
@@ -296,8 +288,6 @@ public class AdminMypageSchedule extends Fragment implements OnMapReadyCallback,
         MarkerOptions markerOptions=new MarkerOptions();
         markerOptions.position(hi);
         mGoogleMap.addMarker(markerOptions);
-        ///////////////////////////////////////시이바알/////////////////////////////////////////////////
-
     }
     @Override
     public void onMapReady(GoogleMap googleMap) {

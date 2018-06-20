@@ -63,10 +63,7 @@ public class AdminMypageAS extends Fragment implements OnMapReadyCallback,View.O
         mf = (MapFragment)fm.findFragmentById(R.id.map2);
         mf.getMapAsync(this);
         btnSearch0.setOnClickListener(this);
-        ////////얍 얍 얍 얍 얍 얍 얍 얍///////////////////
         arrayPoints = new ArrayList<LatLng>();
-
-        ////////얍 얍 얍 얍 얍 얍 얍 얍///////////////////
         return view; // 따라서 이곳으로 return 이 와야 합니다.
     }
 
@@ -103,9 +100,9 @@ public class AdminMypageAS extends Fragment implements OnMapReadyCallback,View.O
         }
         if (list != null) {
             if (list.size() == 0) {
-                Toast.makeText(getContext(), "NO!!!!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "list값 null", Toast.LENGTH_SHORT).show();
             } else {
-                Log.e("list","들어오긴한다 병신아");
+                Log.e("list","list 값에 추가");
 
                 lat = list.get(0).getLatitude();
                 lon = list.get(0).getLongitude();
