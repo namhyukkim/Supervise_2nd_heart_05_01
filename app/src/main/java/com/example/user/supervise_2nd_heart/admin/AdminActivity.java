@@ -27,6 +27,10 @@ public class AdminActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     LinearLayout back2;
     ImageView com1, myPage1, phone1, industry1;
+    private long pressedTime =0;
+
+    //
+
 
     @Override
     protected void attachBaseContext(Context newBase) {

@@ -93,7 +93,7 @@ public class AdminMypageAS extends Fragment implements OnMapReadyCallback,View.O
         try {
             list = geocoder.getFromLocationName(
                     str, // 지역 이름
-                    1); // 읽을 개수
+                    10); // 읽을 개수
         } catch (IOException e) {
             e.printStackTrace();
             Log.e("test","입출력 오류 - 서버에서 주소변환시 에러발생");

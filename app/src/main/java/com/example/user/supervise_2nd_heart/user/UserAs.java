@@ -100,6 +100,11 @@ public class UserAs extends Fragment {
             @Override
             public void onClick(View v) {
                 comState = editAsRequest.getText().toString();
+                asDate =String.format("%d년 %d월 %d일",datePicker.getYear(),datePicker.getMonth()+1,datePicker.getDayOfMonth());
+
+
+
+
 
                 Log.e("ㅎㅇ", getUserID+" "+comState + " " + asDate + " ");
                 Response.Listener<String> responseListener = new Response.Listener<String>() {

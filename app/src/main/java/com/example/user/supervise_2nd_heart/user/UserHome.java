@@ -93,23 +93,23 @@ public class UserHome extends Fragment implements View.OnClickListener {
         switch (v.getId()){
             case R.id.com2:
 
-                fragmentTransaction.replace(R.id.contentContainer,  UserCom.newInstance(userID));
+                fragmentTransaction.replace(R.id.contentContainer,  UserCom.newInstance(getUserID));
                 fragmentTransaction.commit();
                 back3.setVisibility(View.INVISIBLE);
                 break;
             case R.id.myPage2:
-                fragmentTransaction.replace(R.id.contentContainer, UserService.newInstance(userID));
+                fragmentTransaction.replace(R.id.contentContainer, UserService.newInstance(getUserID));
                 fragmentTransaction.commit();
                 back3.setVisibility(View.INVISIBLE);
                 break;
 
             case R.id.as2:
-                fragmentTransaction.replace(R.id.contentContainer, UserAs.newInstance(userID));
+                fragmentTransaction.replace(R.id.contentContainer, UserAs.newInstance(getUserID));
                 fragmentTransaction.commit();
                 back3.setVisibility(View.INVISIBLE);
                 break;
             case R.id.menual2:
-                fragmentTransaction.replace(R.id.contentContainer, UserMenual.newInstance(userID));
+                fragmentTransaction.replace(R.id.contentContainer, UserMenual.newInstance(getUserID));
                 fragmentTransaction.commit();
                 back3.setVisibility(View.INVISIBLE);
                 break;
