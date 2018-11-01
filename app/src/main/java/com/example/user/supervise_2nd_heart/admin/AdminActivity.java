@@ -27,7 +27,7 @@ public class AdminActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     LinearLayout back2;
     ImageView com1, myPage1, phone1, industry1;
-    private long pressedTime =0;
+    private long pressedTime = 0;
 
     //
 
@@ -36,6 +36,7 @@ public class AdminActivity extends AppCompatActivity
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,11 +110,36 @@ public class AdminActivity extends AppCompatActivity
 
     }
 
+    ///////////////////////////////////////////////////남혁이 추가부분~~~~~~~~~~~~//////////////
+    public interface OnBackPressedListener {
+        void onBack();
+
+    }
+
+    private OnBackPressedListener mBackListener;
+
+    public void setOnBackPressedListener(OnBackPressedListener listener) {
+        mBackListener = listener;
+    }
+
+
+
+    ///////////////////////////////////////////////////남혁이 추가부분~~~~~~~~~~~~//////////////
+
+//    @Override
+//    public void onBackPressed() {
+//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        if (drawer.isDrawerOpen(GravityCompat.START)) {
+//            drawer.closeDrawer(GravityCompat.START);
+//        } else {
+//            super.onBackPressed();
+//        }
+//    }
+
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
+        if (mBackListener !=null) {
+            mBackListener.onBack();
         } else {
             super.onBackPressed();
         }

@@ -143,4 +143,23 @@ public class UserMainActivity extends AppCompatActivity {
 //////////////////////////////////////////////////////// 바텀내비게이션/////////////////////////
 
     }
+    public interface OnBackPressedListener {
+        void onBack();
+
+    }
+
+    private OnBackPressedListener UserBackListener;
+
+    public void setOnBackPressedListener(OnBackPressedListener listener) {
+        UserBackListener = listener;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (UserBackListener !=null) {
+            UserBackListener.onBack();
+        } else {
+            super.onBackPressed();
+        }
+    }
 }

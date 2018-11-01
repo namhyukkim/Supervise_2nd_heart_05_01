@@ -3,6 +3,7 @@ package com.example.user.supervise_2nd_heart.admin;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -34,7 +35,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-public class AdminCustomer extends Fragment {
+public class AdminCustomer extends Fragment implements AdminActivity.OnBackPressedListener{
     private static String TAG = "phptest_MainActivity";
 
     private static final String TAG_JSON = "webnautes";
@@ -71,20 +72,30 @@ public class AdminCustomer extends Fragment {
             public void onClick(View v) {
                 mArrayList.clear();
 
-                GetData task = new GetData();
+//                GetData task = new GetData();
+//
+//                task.execute(mEditTextSearchKeyword.getText().toString());
 
-                task.execute(mEditTextSearchKeyword.getText().toString());
+                if ((mEditTextSearchKeyword.getText().toString())==null){
+                    GetData2 task2 = new GetData2();
+                    task2.execute("http://211.115.254.166:8282/loadinfo.php");
+                }
+                else {
+                    GetData task = new GetData();
 
-                mListViewList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        Intent intent = new Intent(getActivity(), AdminMoreInfo.class);
-                        if(i==0){
-                            intent.putExtra("info", mEditTextSearchKeyword.getText().toString());
-                            startActivity(intent);
-                        }
-                    }
-                });
+                    task.execute(mEditTextSearchKeyword.getText().toString());
+                }
+
+//                mListViewList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                    @Override
+//                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                        Intent intent = new Intent(getActivity(), AdminMoreInfo.class);
+//                        if(i==0){
+//                            intent.putExtra("info", mEditTextSearchKeyword.getText().toString());
+//                            startActivity(intent);
+//                        }
+//                    }
+//                });
 
 
             }
@@ -122,6 +133,32 @@ public class AdminCustomer extends Fragment {
             }
         });
         return v;
+    }
+
+    @Override
+    public void onBack() {
+        Log.e("Other", "onBack()");
+        // 리스너를 설정하기 위해 Activity 를 받아옵니다.
+        Intent intent = new Intent(getContext(), AdminActivity.class);
+        startActivity(intent);
+
+
+//        AdminActivity activity = (AdminActivity) getActivity();
+//        // 한번 뒤로가기 버튼을 눌렀다면 Listener 를 null 로 해제해줍니다.
+//        activity.setOnBackPressedListener(null);
+//        // MainFragment 로 교체
+//        getActivity().getFragmentManager().beginTransaction().replace(R.id.drawer_layout,new AdminActivity()).addToBackStack(null).commit();
+//        // Activity 에서도 뭔가 처리하고 싶은 내용이 있다면 하단 문장처럼 호출해주면 됩니다.
+//        // activity.onBackPressed();
+    }
+
+    // Fragment 호출 시 반드시 호출되는 오버라이드 메소드입니다.
+    @Override
+    //                     혹시 Context 로 안되시는분은 Activity 로 바꿔보시기 바랍니다.
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Log.e("Other", "onAttach()");
+        ((AdminActivity) context).setOnBackPressedListener(this);
     }
 
     private class GetData extends AsyncTask<String, Void, String> {

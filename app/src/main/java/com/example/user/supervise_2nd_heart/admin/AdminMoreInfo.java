@@ -62,6 +62,7 @@ public class AdminMoreInfo extends AppCompatActivity {
         data = intent.getStringExtra("info");
         data1 =intent.getStringExtra("info1");
         Log.v("AdminMoreInfo", "입력받은데이터:" + data);
+        Log.v("AdminMoreInfo", "입력받은데이터:" + data1);
 
 
         GetData task = new GetData();

@@ -47,7 +47,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-public class AdminCom extends Fragment {
+public class AdminCom extends Fragment implements AdminActivity.OnBackPressedListener {
     private static String TAG = "phptest_MainActivity";
 
     private static final String TAG_JSON = "webnautes";
@@ -58,8 +58,6 @@ public class AdminCom extends Fragment {
     private static final String TAG_VOLTAGE = "voltage";
     private static final String TAG_WATT = "watt";
     private static final String TAG_ATMOSPHERIC = "atmospheric";
-
-
 
 
     ArrayList<HashMap<String, String>> mArrayList;
@@ -81,7 +79,7 @@ public class AdminCom extends Fragment {
         mEditTextSearchKeyword = (EditText) v.findViewById(R.id.comEditSearch);
 
         button_search = (Button) v.findViewById(R.id.comButtonSearch);
-        btnSync = (Button)v.findViewById(R.id.btnSync);
+        btnSync = (Button) v.findViewById(R.id.btnSync);
         // 전체 회원의 기기정보를 출력함.
         GetData2 task2 = new GetData2();
         task2.execute("http://211.115.254.166:8282/com_loadinfo.php");
@@ -107,28 +105,24 @@ public class AdminCom extends Fragment {
                 task.execute(mEditTextSearchKeyword.getText().toString()); // 에디트 텍스트에서 값변환하여 입력
 
 
-
             }
         });
         mListViewList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                for (int s=0;s<mArrayList.size();s++)
-                {
-                    if(position==s)
-                    {
+                for (int s = 0; s < mArrayList.size(); s++) {
+                    if (position == s) {
                         // Log.d(TAG, "s값  - " +mArrayList.get(i));
 
                         HashMap map = new HashMap();
-                        map=mArrayList.get(position);
+                        map = mArrayList.get(position);
 
                         Iterator<String> iterator = map.keySet().iterator();
-                        while (iterator.hasNext()){
+                        while (iterator.hasNext()) {
                             String key = (String) iterator.next();
                             //Log.i("INFO", "key : "+key);
                             //Log.i("INFO", "value : ska "+mArrayList.get(i).get(key));
-                            if(key=="userMk")
-                            {
+                            if (key == "userMk") {
                                 //Log.i("INFO", "value : ska "+mArrayList.get(i).get(key));
                                 Intent intent = new Intent(getActivity(), OnOff.class);
                                 intent.putExtra("info", mArrayList.get(position).get(key));
@@ -141,6 +135,33 @@ public class AdminCom extends Fragment {
         });
 
         return v;
+    }
+
+    @Override
+    public void onBack() {
+        Log.e("Other", "onBack()");
+        // 리스너를 설정하기 위해 Activity 를 받아옵니다.
+        Intent intent = new Intent(getContext(), AdminActivity.class);
+        startActivity(intent);
+
+
+
+//        AdminActivity activity = (AdminActivity) getActivity();
+//        // 한번 뒤로가기 버튼을 눌렀다면 Listener 를 null 로 해제해줍니다.
+//        activity.setOnBackPressedListener(null);
+//        // MainFragment 로 교체
+//        getActivity().getFragmentManager().beginTransaction().replace(R.id.drawer_layout,new AdminActivity()).addToBackStack(null).commit();
+//        // Activity 에서도 뭔가 처리하고 싶은 내용이 있다면 하단 문장처럼 호출해주면 됩니다.
+//        // activity.onBackPressed();
+    }
+
+    // Fragment 호출 시 반드시 호출되는 오버라이드 메소드입니다.
+    @Override
+    //                     혹시 Context 로 안되시는분은 Activity 로 바꿔보시기 바랍니다.
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Log.e("Other", "onAttach()");
+        ((AdminActivity) context).setOnBackPressedListener(this);
     }
 
     // 검색한 데이터를 불러오는 내부 클래스
@@ -171,7 +192,7 @@ public class AdminCom extends Fragment {
 
             String searchKeyword = params[0];
             String serverURL = null;
-            serverURL =  "http://211.115.254.166:8282/com_datasearch.php";
+            serverURL = "http://211.115.254.166:8282/com_datasearch.php";
 
             String postParameters = "customer=" + searchKeyword;
             try {
@@ -329,14 +350,15 @@ public class AdminCom extends Fragment {
             }
             ListAdapter ListAdapter = new SimpleAdapter(
                     getActivity(), mArrayList, R.layout.com_table,
-                    new String[]{TAG_CUSTOMER,TAG_MK, TAG_TEMP, TAG_AMPERE,TAG_VOLTAGE,TAG_WATT,TAG_ATMOSPHERIC},
-                    new int[]{R.id.userCustomer_com,R.id.userMk_com, R.id.com_temp, R.id.com_ampere,R.id.com_voltage,R.id.com_watt,R.id.com_atmospheric}
+                    new String[]{TAG_CUSTOMER, TAG_MK, TAG_TEMP, TAG_AMPERE, TAG_VOLTAGE, TAG_WATT, TAG_ATMOSPHERIC},
+                    new int[]{R.id.userCustomer_com, R.id.userMk_com, R.id.com_temp, R.id.com_ampere, R.id.com_voltage, R.id.com_watt, R.id.com_atmospheric}
             );
             mListViewList.setAdapter(ListAdapter);
         } catch (JSONException e) {
             Log.d(TAG, "showResult : ", e);
         }
     }
+
 
 }
 

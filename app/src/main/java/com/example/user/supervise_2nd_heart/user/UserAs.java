@@ -1,9 +1,12 @@
 package com.example.user.supervise_2nd_heart.user;
 
 import android.app.AlertDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +20,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.example.user.supervise_2nd_heart.R;
+import com.example.user.supervise_2nd_heart.admin.AdminActivity;
 import com.example.user.supervise_2nd_heart.network.UserAsRequest;
 
 import org.json.JSONException;
@@ -24,7 +28,7 @@ import org.json.JSONObject;
 
 import java.util.Calendar;
 
-public class UserAs extends Fragment {
+public class UserAs extends Fragment implements UserMainActivity.OnBackPressedListener{
     DatePicker datePicker;
     EditText editAsRequest;
     Button btnAsRequest;
@@ -141,6 +145,24 @@ public class UserAs extends Fragment {
         ////////DatePicker 고고고고고고고!!!!!!!!!!!!
 
         return v;
+    }
+    @Override
+    public void onBack() {
+        Log.e("Other", "onBack()");
+        // 리스너를 설정하기 위해 Activity 를 받아옵니다.
+        android.support.v4.app.FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction  = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.contentContainer, UserHome.newInstance(getUserID));
+        fragmentTransaction.commit();
+    }
+
+    // Fragment 호출 시 반드시 호출되는 오버라이드 메소드입니다.
+    @Override
+    //                     혹시 Context 로 안되시는분은 Activity 로 바꿔보시기 바랍니다.
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Log.e("Other", "onAttach()");
+        ((UserMainActivity) context).setOnBackPressedListener(this);
     }
 
 }

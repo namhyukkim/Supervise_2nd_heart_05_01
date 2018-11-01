@@ -1,11 +1,13 @@
 package com.example.user.supervise_2nd_heart.user;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,7 +34,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class UserService extends Fragment {
+public class UserService extends Fragment implements UserMainActivity.OnBackPressedListener{
     private static String TAG = "phptest_MainActivity";
 
     private static final String TAG_JSON = "webnautes";
@@ -105,6 +107,25 @@ public class UserService extends Fragment {
         task.execute(getUserID); // 에디트 텍스트에서 값변환하여 입력
 
         return v;
+    }
+
+    @Override
+    public void onBack() {
+        Log.e("Other", "onBack()");
+        // 리스너를 설정하기 위해 Activity 를 받아옵니다.
+        android.support.v4.app.FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction  = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.contentContainer, UserHome.newInstance(getUserID));
+        fragmentTransaction.commit();
+    }
+
+    // Fragment 호출 시 반드시 호출되는 오버라이드 메소드입니다.
+    @Override
+    //                     혹시 Context 로 안되시는분은 Activity 로 바꿔보시기 바랍니다.
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Log.e("Other", "onAttach()");
+        ((UserMainActivity) context).setOnBackPressedListener(this);
     }
 
     // 검색한 데이터를 불러오는 내부 클래스
